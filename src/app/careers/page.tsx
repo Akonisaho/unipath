@@ -1,10 +1,11 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { ArrowLeft, Search, ChevronDown, ChevronUp, Sparkles, TrendingUp, Minus, TrendingDown } from 'lucide-react'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 const CAREERS_DATA = [
   // Health Sciences
@@ -35,8 +36,8 @@ const CAREERS_DATA = [
   { title: 'Systems Administrator', field: 'Technology', salaryMin: 20000, salaryMax: 70000, outlook: 'Stable', subjects: ['Mathematics', 'Information Technology'], aps: 20, description: 'Maintain and manage IT infrastructure, servers, and networks.' },
 
   // Education
-  { title: 'Primary School Teacher', field: 'Education', salaryMin: 18000, salaryMax: 45000, outlook: 'Stable', subjects: ['Any home language', 'Mathematics Literacy'], aps: 18, description: 'Educate children in Grades R–7 across all subjects.' },
-  { title: 'High School Teacher', field: 'Education', salaryMin: 20000, salaryMax: 55000, outlook: 'Stable', subjects: ['Subject of specialisation'], aps: 22, description: 'Teach specific subjects to learners in Grades 8–12.' },
+  { title: 'Primary School Teacher', field: 'Education', salaryMin: 18000, salaryMax: 45000, outlook: 'Stable', subjects: ['Any home language', 'Mathematics Literacy'], aps: 18, description: 'Educate children in Grades Râ€“7 across all subjects.' },
+  { title: 'High School Teacher', field: 'Education', salaryMin: 20000, salaryMax: 55000, outlook: 'Stable', subjects: ['Subject of specialisation'], aps: 22, description: 'Teach specific subjects to learners in Grades 8â€“12.' },
   { title: 'School Principal', field: 'Education', salaryMin: 40000, salaryMax: 90000, outlook: 'Stable', subjects: ['Any'], aps: 24, description: 'Lead and manage a school, overseeing academic performance and staff.' },
 
   // Law
@@ -116,7 +117,7 @@ export default function CareersPage() {
           </button>
           <div>
             <h1 className="text-lg font-bold">Explore Careers</h1>
-            <p className="text-blue-300 text-xs">{CAREERS_DATA.length} careers · South African salary data</p>
+            <p className="text-blue-300 text-xs">{CAREERS_DATA.length} careers Â· South African salary data</p>
           </div>
         </div>
       </div>
@@ -181,12 +182,12 @@ export default function CareersPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <p className="text-sm font-semibold text-gray-900">{career.title}</p>
-                      {qualifies && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">✓ Qualify</span>}
+                      {qualifies && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">âœ“ Qualify</span>}
                     </div>
                     <p className="text-xs text-gray-400 mt-0.5">{career.field}</p>
                     <div className="flex items-center gap-3 mt-1.5">
                       <span className="text-xs font-semibold text-gray-700">
-                        {formatSalary(career.salaryMin)}–{formatSalary(career.salaryMax)}/month
+                        {formatSalary(career.salaryMin)}â€“{formatSalary(career.salaryMax)}/month
                       </span>
                       <div className="flex items-center gap-1">
                         <OutlookIcon outlook={career.outlook} />
@@ -208,7 +209,7 @@ export default function CareersPage() {
                       </div>
                       <div className="bg-gray-50 rounded-xl p-3">
                         <p className="text-xs text-gray-400">Salary range</p>
-                        <p className="text-sm font-bold text-gray-800 mt-0.5">{formatSalary(career.salaryMin)}–{formatSalary(career.salaryMax)}</p>
+                        <p className="text-sm font-bold text-gray-800 mt-0.5">{formatSalary(career.salaryMin)}â€“{formatSalary(career.salaryMax)}</p>
                       </div>
                     </div>
 
@@ -217,7 +218,7 @@ export default function CareersPage() {
                       <div className="flex flex-wrap gap-1.5">
                         {career.subjects.map(s => (
                           <span key={s} className={`text-xs px-2 py-0.5 rounded-full font-medium ${subjects.includes(s) ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
-                            {subjects.includes(s) ? '✓ ' : ''}{s}
+                            {subjects.includes(s) ? 'âœ“ ' : ''}{s}
                           </span>
                         ))}
                       </div>
@@ -227,7 +228,7 @@ export default function CareersPage() {
                       href={`/courses?search=${encodeURIComponent(career.field)}`}
                       className="block text-center text-xs text-blue-600 hover:text-blue-800 font-medium py-1"
                     >
-                      Browse {career.field} courses →
+                      Browse {career.field} courses â†’
                     </Link>
                   </div>
                 )}
@@ -239,7 +240,7 @@ export default function CareersPage() {
 
       <Link
         href="/agent"
-        className="fixed bottom-6 right-6 bg-yellow-400 text-blue-900 p-4 rounded-full shadow-lg hover:bg-yellow-300 transition-all flex items-center gap-2 font-semibold text-sm"
+        className="fixed bottom-6 right-6 bg-red-500 text-blue-900 p-4 rounded-full shadow-lg hover:bg-red-400 transition-all flex items-center gap-2 font-semibold text-sm"
       >
         <Sparkles size={20} />
         <span>Career Guide</span>

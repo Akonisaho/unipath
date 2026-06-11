@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
@@ -131,7 +131,7 @@ export default function UsersAdminPage() {
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Users</h1>
           <p className="text-gray-500 text-sm mt-1">
-            {admins.length} admins · {students.length} learners
+            {admins.length} admins Â· {students.length} learners
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -166,7 +166,7 @@ export default function UsersAdminPage() {
 
           {newAdmin ? (
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-              <p className="text-sm font-bold text-green-800 mb-3">✅ Admin account created!</p>
+              <p className="text-sm font-bold text-green-800 mb-3">âœ… Admin account created!</p>
               <p className="text-xs text-green-700 mb-1">Share these credentials securely:</p>
               <div className="bg-white border border-green-200 rounded-xl p-4 mb-4 font-mono text-sm">
                 <p><span className="text-gray-500">Email:</span> {newAdmin.email}</p>
@@ -212,9 +212,9 @@ export default function UsersAdminPage() {
                   />
                 </div>
               </div>
-              <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3">
-                <p className="text-xs text-yellow-700">
-                  ⚠️ A temporary password will be generated. Share it securely with the new admin — they must change it after first login.
+              <div className="bg-red-50 border border-red-200 rounded-xl p-3">
+                <p className="text-xs text-red-700">
+                  âš ï¸ A temporary password will be generated. Share it securely with the new admin â€” they must change it after first login.
                 </p>
               </div>
               <div className="flex gap-3">
@@ -256,7 +256,7 @@ export default function UsersAdminPage() {
                     {admins.map(user => (
                       <tr key={user.id} className="hover:bg-gray-50">
                         <td className="px-4 py-3">
-                          <p className="text-sm font-medium text-gray-900">{user.full_name || '—'}</p>
+                          <p className="text-sm font-medium text-gray-900">{user.full_name || 'â€”'}</p>
                         </td>
                         <td className="px-4 py-3">
                           <p className="text-xs text-gray-500">{user.email}</p>
@@ -300,24 +300,24 @@ export default function UsersAdminPage() {
                   ) : students.map(user => (
                     <tr key={user.id} className="hover:bg-gray-50">
                       <td className="px-4 py-3">
-                        <p className="text-sm font-medium text-gray-900">{user.full_name || '—'}</p>
+                        <p className="text-sm font-medium text-gray-900">{user.full_name || 'â€”'}</p>
                       </td>
                       <td className="px-4 py-3">
                         <p className="text-xs text-gray-500">{user.email}</p>
                       </td>
                       <td className="px-4 py-3">
-                        <p className="text-xs text-gray-500">{user.province || '—'}</p>
+                        <p className="text-xs text-gray-500">{user.province || 'â€”'}</p>
                       </td>
                       <td className="px-4 py-3">
-                        <p className="text-xs text-gray-500">{user.school_name || '—'}</p>
+                        <p className="text-xs text-gray-500">{user.school_name || 'â€”'}</p>
                       </td>
                       <td className="px-4 py-3">
                         <span className={`text-xs px-2 py-1 rounded-full font-medium ${
                           user.onboarding_complete
                             ? 'bg-green-100 text-green-700'
-                            : 'bg-yellow-100 text-yellow-700'
+                            : 'bg-red-100 text-red-700'
                         }`}>
-                          {user.onboarding_complete ? '✅ Complete' : `Step ${user.onboarding_step || 1}`}
+                          {user.onboarding_complete ? 'âœ… Complete' : `Step ${user.onboarding_step || 1}`}
                         </span>
                       </td>
                       <td className="px-4 py-3">

@@ -1,4 +1,4 @@
-import { MatricSubject, SYMBOL_POINTS } from '@/types'
+﻿import { MatricSubject, SYMBOL_POINTS } from '@/types'
 
 export function calculateAPS(subjects: MatricSubject[]): number {
   // Exclude Life Orientation from APS calculation
@@ -38,7 +38,7 @@ export function getAPSLevel(aps: number): {
   if (aps >= 24)
     return {
       level: 'Good',
-      color: 'text-yellow-600',
+      color: 'text-red-600',
       description: 'You qualify for many diploma and degree courses',
     }
   return {

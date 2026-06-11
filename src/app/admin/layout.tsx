@@ -1,10 +1,11 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
 import { BookOpen, Building2, GraduationCap, Upload, Users, LayoutDashboard, LogOut } from 'lucide-react'
+import Logo from '@/components/Logo'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter()
@@ -51,9 +52,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar */}
       <div className="w-64 bg-blue-900 text-white flex flex-col">
         <div className="p-6 border-b border-blue-800">
-          <h1 className="text-xl font-bold">
-            Uni<span className="text-yellow-400">Path</span>
-          </h1>
+          <Logo size="sm" stacked={false} />
           <p className="text-blue-300 text-xs mt-1">Admin Dashboard</p>
         </div>
 

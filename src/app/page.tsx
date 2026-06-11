@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 
 export default function WelcomePage() {
   return (
@@ -7,7 +7,7 @@ export default function WelcomePage() {
         {/* Logo */}
         <div className="mb-8">
           <h1 className="text-6xl font-bold text-white tracking-tight">
-            Uni<span className="text-yellow-400">Path</span>
+            Uni<span className="text-red-500">Path</span>
           </h1>
           <p className="text-blue-200 text-lg mt-2">
             Your future starts here
@@ -42,9 +42,9 @@ export default function WelcomePage() {
         <div className="flex flex-col gap-4">
           <Link
             href="/register"
-            className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold text-lg py-4 px-8 rounded-2xl transition-all duration-200 shadow-lg"
+            className="bg-red-500 hover:bg-red-400 text-blue-900 font-bold text-lg py-4 px-8 rounded-2xl transition-all duration-200 shadow-lg"
           >
-            Get Started — It's Free
+            Get Started â€” It's Free
           </Link>
           <Link
             href="/login"
@@ -55,7 +55,7 @@ export default function WelcomePage() {
         </div>
 
         <p className="text-blue-300 text-sm mt-8">
-          Built for every Grade 12 learner in South Africa 🇿🇦
+          Built for every Grade 12 learner in South Africa ðŸ‡¿ðŸ‡¦
         </p>
       </div>
     </main>

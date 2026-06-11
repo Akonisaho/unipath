@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
@@ -60,7 +60,7 @@ export default function AgentPage() {
       const subjectList = matricData?.map((s: any) => s.subject).join(', ') || 'your subjects'
       setMessages([{
         role: 'assistant',
-        content: `Hi ${firstName}! 👋 I'm your UniPath Career Guide.\n\nI can see your APS score is **${apsData?.total_aps || 0}** and you studied ${subjectList}.\n\nI'm here to help you find the right courses, universities and career paths. What would you like to know?`
+        content: `Hi ${firstName}! ðŸ‘‹ I'm your UniPath Career Guide.\n\nI can see your APS score is **${apsData?.total_aps || 0}** and you studied ${subjectList}.\n\nI'm here to help you find the right courses, universities and career paths. What would you like to know?`
       }])
 
       setLoading(false)
@@ -137,12 +137,12 @@ export default function AgentPage() {
         <button onClick={() => router.push('/dashboard')} className="text-blue-300 hover:text-white">
           <ArrowLeft size={20} />
         </button>
-        <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
+        <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
           <Sparkles size={20} className="text-blue-900" />
         </div>
         <div>
           <p className="text-sm font-bold">UniPath Career Guide</p>
-          <p className="text-xs text-blue-300">AI-powered · Always here to help</p>
+          <p className="text-xs text-blue-300">AI-powered Â· Always here to help</p>
         </div>
         <div className="ml-auto bg-green-400 w-2 h-2 rounded-full" />
       </div>
@@ -153,7 +153,7 @@ export default function AgentPage() {
           <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             {msg.role === 'assistant' && (
               <div className="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center mr-2 shrink-0 mt-1">
-                <Sparkles size={14} className="text-yellow-400" />
+                <Sparkles size={14} className="text-red-500" />
               </div>
             )}
             <div className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl text-sm ${
@@ -169,7 +169,7 @@ export default function AgentPage() {
         {sending && (
           <div className="flex justify-start">
             <div className="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center mr-2 shrink-0">
-              <Sparkles size={14} className="text-yellow-400" />
+              <Sparkles size={14} className="text-red-500" />
             </div>
             <div className="bg-white border border-gray-200 px-4 py-3 rounded-2xl rounded-tl-sm">
               <div className="flex gap-1">

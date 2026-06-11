@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -6,6 +6,7 @@ import { supabase } from '@/lib/supabase'
 import { ArrowLeft, FileText, CheckCircle, Clock, XCircle, ChevronDown, ChevronUp, ExternalLink, Upload, Sparkles, BookOpen } from 'lucide-react'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 const UNI_FEES: Record<string, number> = {
   'UCT': 100, 'University of Cape Town': 100,
@@ -55,8 +56,8 @@ const UNI_URLS: Record<string, string> = {
 const STATUS_CONFIG: Record<string, { label: string; color: string; icon: any }> = {
   draft: { label: 'Draft', color: 'bg-gray-100 text-gray-600', icon: FileText },
   submitted: { label: 'Submitted', color: 'bg-blue-100 text-blue-700', icon: Clock },
-  pending: { label: 'Under Review', color: 'bg-yellow-100 text-yellow-700', icon: Clock },
-  accepted: { label: 'Accepted ✅', color: 'bg-green-100 text-green-700', icon: CheckCircle },
+  pending: { label: 'Under Review', color: 'bg-red-100 text-red-700', icon: Clock },
+  accepted: { label: 'Accepted âœ…', color: 'bg-green-100 text-green-700', icon: CheckCircle },
   rejected: { label: 'Unsuccessful', color: 'bg-red-100 text-red-600', icon: XCircle },
 }
 
@@ -186,7 +187,7 @@ export default function ApplicationsPage() {
           </button>
           <div>
             <h1 className="text-lg font-bold">My Applications</h1>
-            <p className="text-blue-300 text-xs">{totalApps} started · {submitted} submitted · {accepted} accepted</p>
+            <p className="text-blue-300 text-xs">{totalApps} started Â· {submitted} submitted Â· {accepted} accepted</p>
           </div>
         </div>
       </div>
@@ -214,7 +215,7 @@ export default function ApplicationsPage() {
           <ol className="text-xs text-blue-700 space-y-1 list-decimal list-inside">
             <li>Select universities for each course below</li>
             <li>Click the university link to go to their portal</li>
-            <li>Your profile info is saved — use it to fill in their form</li>
+            <li>Your profile info is saved â€” use it to fill in their form</li>
             <li>Mark as submitted once done</li>
           </ol>
         </div>
@@ -246,14 +247,14 @@ export default function ApplicationsPage() {
                 >
                   <div>
                     <p className="font-semibold text-gray-900 text-sm">{course.name}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{course.faculty} · APS {course.min_aps}+ · {course.duration}</p>
+                    <p className="text-xs text-gray-400 mt-0.5">{course.faculty} Â· APS {course.min_aps}+ Â· {course.duration}</p>
                     {courseApps.length > 0 && (
                       <div className="flex gap-1.5 mt-1.5 flex-wrap">
                         {courseApps.map((app: any) => {
                           const cfg = STATUS_CONFIG[app.status] || STATUS_CONFIG.draft
                           return (
                             <span key={app.id} className={`text-xs px-2 py-0.5 rounded-full font-medium ${cfg.color}`}>
-                              {app.university_name?.split(' ').slice(-1)[0]} — {cfg.label}
+                              {app.university_name?.split(' ').slice(-1)[0]} â€” {cfg.label}
                             </span>
                           )
                         })}
@@ -349,7 +350,7 @@ export default function ApplicationsPage() {
       {/* Floating AI button */}
       <Link
         href="/agent"
-        className="fixed bottom-6 right-6 bg-yellow-400 text-blue-900 p-4 rounded-full shadow-lg hover:bg-yellow-300 transition-all flex items-center gap-2 font-semibold text-sm"
+        className="fixed bottom-6 right-6 bg-red-500 text-blue-900 p-4 rounded-full shadow-lg hover:bg-red-400 transition-all flex items-center gap-2 font-semibold text-sm"
       >
         <Sparkles size={20} />
         <span>Career Guide</span>

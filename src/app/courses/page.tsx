@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -6,6 +6,7 @@ import { supabase } from '@/lib/supabase'
 import { ArrowLeft, Search, Heart, ChevronDown, ChevronUp, Sparkles, BookOpen } from 'lucide-react'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 const FACULTIES = ['All', 'Health Sciences', 'Engineering', 'Commerce', 'Science', 'Education', 'Humanities', 'Law', 'Arts', 'Built Environment', 'Agriculture']
 
@@ -87,12 +88,12 @@ export default function CoursesPage() {
             <div>
               <h1 className="text-lg font-bold">Browse Courses</h1>
               <p className="text-blue-300 text-xs">
-                {aps !== null ? `APS ${aps}/42 · ` : ''}{wishlist.length} wishlisted
+                {aps !== null ? `APS ${aps}/42 Â· ` : ''}{wishlist.length} wishlisted
               </p>
             </div>
           </div>
           {wishlist.length > 0 && (
-            <Link href="/applications" className="flex items-center gap-1.5 bg-yellow-400 text-blue-900 px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-yellow-300">
+            <Link href="/applications" className="flex items-center gap-1.5 bg-red-500 text-blue-900 px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-red-400">
               Apply ({wishlist.length})
             </Link>
           )}
@@ -163,10 +164,10 @@ export default function CoursesPage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
                         <p className="text-sm font-semibold text-gray-900">{course.name}</p>
-                        {qualifies && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">✓ Qualify</span>}
-                        {close && <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-medium">Almost</span>}
+                        {qualifies && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">âœ“ Qualify</span>}
+                        {close && <span className="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-medium">Almost</span>}
                       </div>
-                      <p className="text-xs text-gray-400 mt-0.5">{course.faculty} · APS {course.min_aps}+ · {course.duration || '3 years'}</p>
+                      <p className="text-xs text-gray-400 mt-0.5">{course.faculty} Â· APS {course.min_aps}+ Â· {course.duration || '3 years'}</p>
                       <p className="text-xs text-gray-400">{unis.length} {unis.length === 1 ? 'university' : 'universities'}</p>
                     </div>
 
@@ -228,7 +229,7 @@ export default function CoursesPage() {
                                 <div className="flex items-center gap-2">
                                   <span className="text-xs text-gray-400">APS {uni.min_aps}+</span>
                                   {uni.application_deadline && (
-                                    <span className="text-xs text-gray-400">· {uni.application_deadline}</span>
+                                    <span className="text-xs text-gray-400">Â· {uni.application_deadline}</span>
                                   )}
                                 </div>
                               </div>
@@ -241,7 +242,7 @@ export default function CoursesPage() {
                         onClick={() => toggleWishlist(course.id)}
                         className={`w-full py-2.5 rounded-xl text-sm font-semibold transition-all ${inWishlist ? 'bg-red-50 text-red-600 hover:bg-red-100' : 'bg-blue-900 text-white hover:bg-blue-800'}`}
                       >
-                        {inWishlist ? '♡ Remove from wishlist' : '♥ Add to wishlist'}
+                        {inWishlist ? 'â™¡ Remove from wishlist' : 'â™¥ Add to wishlist'}
                       </button>
                     </div>
                   )}
@@ -254,7 +255,7 @@ export default function CoursesPage() {
 
       <Link
         href="/agent"
-        className="fixed bottom-6 right-6 bg-yellow-400 text-blue-900 p-4 rounded-full shadow-lg hover:bg-yellow-300 transition-all flex items-center gap-2 font-semibold text-sm"
+        className="fixed bottom-6 right-6 bg-red-500 text-blue-900 p-4 rounded-full shadow-lg hover:bg-red-400 transition-all flex items-center gap-2 font-semibold text-sm"
       >
         <Sparkles size={20} />
         <span>Career Guide</span>

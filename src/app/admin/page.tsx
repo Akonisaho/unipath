@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
@@ -34,14 +34,14 @@ export default function AdminPage() {
     { label: 'University Courses', value: stats.courses, icon: BookOpen, color: 'bg-blue-100 text-blue-700' },
     { label: 'TVET Programmes', value: stats.tvet, icon: GraduationCap, color: 'bg-green-100 text-green-700' },
     { label: 'Registered Users', value: stats.users, icon: Users, color: 'bg-purple-100 text-purple-700' },
-    { label: 'TVET Colleges', value: stats.colleges, icon: Building2, color: 'bg-yellow-100 text-yellow-700' },
+    { label: 'TVET Colleges', value: stats.colleges, icon: Building2, color: 'bg-red-100 text-red-700' },
   ]
 
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Welcome back, Takalani 👋</h1>
-        <p className="text-gray-500 text-sm mt-1">UniPath Admin Dashboard — {new Date().getFullYear()}</p>
+        <h1 className="text-2xl font-bold text-gray-900">Welcome back, Takalani ðŸ‘‹</h1>
+        <p className="text-gray-500 text-sm mt-1">UniPath Admin Dashboard â€” {new Date().getFullYear()}</p>
       </div>
 
       <div className="grid grid-cols-4 gap-6 mb-8">
@@ -56,8 +56,8 @@ export default function AdminPage() {
         ))}
       </div>
 
-      <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-6">
-        <p className="text-sm font-bold text-yellow-800 mb-2">📋 Annual Tasks</p>
+      <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+        <p className="text-sm font-bold text-red-800 mb-2">ðŸ“‹ Annual Tasks</p>
         <ul className="space-y-2">
           {[
             'Upload new university prospectuses for 2026',
@@ -66,8 +66,8 @@ export default function AdminPage() {
             'Update application deadlines',
             'Verify NSFAS funding availability',
           ].map((task, i) => (
-            <li key={i} className="text-xs text-yellow-700 flex items-center gap-2">
-              <span>☐</span> {task}
+            <li key={i} className="text-xs text-red-700 flex items-center gap-2">
+              <span>â˜</span> {task}
             </li>
           ))}
         </ul>

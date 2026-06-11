@@ -1,10 +1,11 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { ArrowLeft, ExternalLink, Search, Filter, Sparkles } from 'lucide-react'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 const BURSARIES = [
   {
@@ -158,7 +159,7 @@ const BURSARIES = [
     faculty: 'All faculties',
     deadline: 'October',
     provinces: 'All provinces',
-    requirements: 'Missing middle students. Income R350,000–R600,000/year. Gap between NSFAS and self-funded.',
+    requirements: 'Missing middle students. Income R350,000â€“R600,000/year. Gap between NSFAS and self-funded.',
     url: 'https://www.isfap.org.za',
     nsfas: false,
     popular: true,
@@ -240,9 +241,9 @@ export default function BursariesPage() {
 
       <div className="max-w-2xl mx-auto px-4 py-6 space-y-4">
         {/* Tip */}
-        <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-4">
-          <p className="text-sm font-semibold text-yellow-800 mb-0.5">💡 Apply to as many as you qualify for</p>
-          <p className="text-xs text-yellow-700">Most bursaries are free to apply. Apply to NSFAS first, then stack bursaries on top.</p>
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
+          <p className="text-sm font-semibold text-red-800 mb-0.5">ðŸ’¡ Apply to as many as you qualify for</p>
+          <p className="text-xs text-red-700">Most bursaries are free to apply. Apply to NSFAS first, then stack bursaries on top.</p>
         </div>
 
         {/* Search */}
@@ -304,7 +305,7 @@ export default function BursariesPage() {
                         <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">Government</span>
                       )}
                       {isRecommended(b) && !b.nsfas && (
-                        <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-medium">Recommended</span>
+                        <span className="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-medium">Recommended</span>
                       )}
                     </div>
                     <p className="text-xs text-gray-400 mt-0.5">{b.provider}</p>
@@ -332,7 +333,7 @@ export default function BursariesPage() {
 
                 <div className="mt-2 flex gap-2 flex-wrap">
                   <span className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full">{b.faculty}</span>
-                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{b.provinces === 'All provinces' ? '🇿🇦 All provinces' : b.provinces}</span>
+                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{b.provinces === 'All provinces' ? 'ðŸ‡¿ðŸ‡¦ All provinces' : b.provinces}</span>
                 </div>
 
                 <p className="text-xs text-gray-500 mt-2 leading-relaxed">{b.requirements}</p>
@@ -342,13 +343,13 @@ export default function BursariesPage() {
         </div>
 
         <Link href="/nsfas" className="block text-center text-sm text-blue-600 hover:text-blue-800 py-2">
-          Read the full NSFAS guide →
+          Read the full NSFAS guide â†’
         </Link>
       </div>
 
       <Link
         href="/agent"
-        className="fixed bottom-6 right-6 bg-yellow-400 text-blue-900 p-4 rounded-full shadow-lg hover:bg-yellow-300 transition-all flex items-center gap-2 font-semibold text-sm"
+        className="fixed bottom-6 right-6 bg-red-500 text-blue-900 p-4 rounded-full shadow-lg hover:bg-red-400 transition-all flex items-center gap-2 font-semibold text-sm"
       >
         <Sparkles size={20} />
         <span>Career Guide</span>

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
@@ -22,9 +22,9 @@ const Field = ({ label, error, required, children }: any) => (
 const StatusSelector = ({ value, onChange, parentLabel }: any) => (
   <div className="grid grid-cols-3 gap-2">
     {[
-      { key: 'alive', label: '🟢 Alive', color: 'border-green-400 bg-green-50 text-green-700' },
-      { key: 'deceased', label: '🔴 Deceased', color: 'border-red-400 bg-red-50 text-red-700' },
-      { key: 'unknown', label: '❓ Unknown', color: 'border-gray-400 bg-gray-50 text-gray-700' },
+      { key: 'alive', label: 'ðŸŸ¢ Alive', color: 'border-green-400 bg-green-50 text-green-700' },
+      { key: 'deceased', label: 'ðŸ”´ Deceased', color: 'border-red-400 bg-red-50 text-red-700' },
+      { key: 'unknown', label: 'â“ Unknown', color: 'border-gray-400 bg-gray-50 text-gray-700' },
     ].map(option => (
       <button
         key={option.key}
@@ -108,7 +108,7 @@ export default function GuardianDetailsPage() {
     if (motherStatus === 'unknown' && fatherStatus === 'unknown') return { label: 'Child Headed Household', color: 'bg-orange-100 text-orange-700 border-orange-200' }
     if ((motherStatus === 'deceased' || motherStatus === 'unknown') &&
       (fatherStatus === 'deceased' || fatherStatus === 'unknown')) return { label: 'Child Headed Household', color: 'bg-orange-100 text-orange-700 border-orange-200' }
-    if (motherStatus === 'deceased' || fatherStatus === 'deceased') return { label: 'Half Orphan', color: 'bg-yellow-100 text-yellow-700 border-yellow-200' }
+    if (motherStatus === 'deceased' || fatherStatus === 'deceased') return { label: 'Half Orphan', color: 'bg-red-100 text-red-700 border-red-200' }
     if (motherStatus === 'unknown' || fatherStatus === 'unknown') return { label: 'Single Parent Household', color: 'bg-blue-100 text-blue-700 border-blue-200' }
     if (motherStatus === 'alive' && fatherStatus === 'alive') return { label: 'Both Parents Alive', color: 'bg-green-100 text-green-700 border-green-200' }
     return null
@@ -276,7 +276,7 @@ export default function GuardianDetailsPage() {
               i === 1 ? 'bg-blue-900 text-white' :
               'bg-gray-100 text-gray-400'
             }`}>
-              {i < 1 ? '✓' : i + 1}
+              {i < 1 ? 'âœ“' : i + 1}
             </div>
             <span className={`ml-1 text-xs hidden sm:block ${
               i === 1 ? 'text-blue-900 font-semibold' :
@@ -297,7 +297,7 @@ export default function GuardianDetailsPage() {
         <div>
           <p className="text-sm font-semibold text-blue-800">Important</p>
           <p className="text-xs text-blue-600 mt-0.5">
-            Universities and NSFAS require both parents' information — even if they are deceased or unknown.
+            Universities and NSFAS require both parents' information â€” even if they are deceased or unknown.
             Please complete all sections below accurately.
           </p>
         </div>
@@ -307,7 +307,7 @@ export default function GuardianDetailsPage() {
 
         {/* MOTHER SECTION */}
         <div className="border border-gray-200 rounded-2xl p-5 space-y-4">
-          <p className="text-sm font-bold text-gray-800">👩 Mother's Information</p>
+          <p className="text-sm font-bold text-gray-800">ðŸ‘© Mother's Information</p>
           <Field label="Mother's Status" error={errors.motherStatus} required>
             <StatusSelector value={motherStatus} onChange={setMotherStatus} parentLabel="Mother" />
           </Field>
@@ -352,14 +352,14 @@ export default function GuardianDetailsPage() {
 
           {motherStatus === 'unknown' && (
             <div className="bg-gray-50 rounded-xl p-3">
-              <p className="text-xs text-gray-500">✅ Noted — mother's information is unknown. Your guardian details below will be used instead.</p>
+              <p className="text-xs text-gray-500">âœ… Noted â€” mother's information is unknown. Your guardian details below will be used instead.</p>
             </div>
           )}
         </div>
 
         {/* FATHER SECTION */}
         <div className="border border-gray-200 rounded-2xl p-5 space-y-4">
-          <p className="text-sm font-bold text-gray-800">👨 Father's Information</p>
+          <p className="text-sm font-bold text-gray-800">ðŸ‘¨ Father's Information</p>
           <Field label="Father's Status" error={errors.fatherStatus} required>
             <StatusSelector value={fatherStatus} onChange={setFatherStatus} parentLabel="Father" />
           </Field>
@@ -404,7 +404,7 @@ export default function GuardianDetailsPage() {
 
           {fatherStatus === 'unknown' && (
             <div className="bg-gray-50 rounded-xl p-3">
-              <p className="text-xs text-gray-500">✅ Noted — father's information is unknown. Your guardian details below will be used instead.</p>
+              <p className="text-xs text-gray-500">âœ… Noted â€” father's information is unknown. Your guardian details below will be used instead.</p>
             </div>
           )}
         </div>
@@ -412,18 +412,18 @@ export default function GuardianDetailsPage() {
         {/* NSFAS STATUS BADGE */}
         {nsfasStatus && (
           <div className={`border rounded-2xl p-4 ${nsfasStatus.color}`}>
-            <p className="text-sm font-bold">🏷️ Your NSFAS Status: {nsfasStatus.label}</p>
+            <p className="text-sm font-bold">ðŸ·ï¸ Your NSFAS Status: {nsfasStatus.label}</p>
             <p className="text-xs mt-1 opacity-80">
               UniPath will automatically apply for the correct NSFAS funding bracket based on your status.
             </p>
           </div>
         )}
 
-        {/* GUARDIAN SECTION — shows when needed */}
+        {/* GUARDIAN SECTION â€” shows when needed */}
         {needsGuardian && (
           <div className="border-2 border-blue-200 rounded-2xl p-5 space-y-4 bg-blue-50">
             <div>
-              <p className="text-sm font-bold text-blue-900">👤 Primary Guardian</p>
+              <p className="text-sm font-bold text-blue-900">ðŸ‘¤ Primary Guardian</p>
               <p className="text-xs text-blue-600 mt-0.5">
                 Since one or both parents are deceased or unknown, please provide your guardian's details.
               </p>
@@ -471,10 +471,10 @@ export default function GuardianDetailsPage() {
 
         <div className="flex gap-3 mt-2">
           <button type="button" onClick={() => router.push('/onboarding/personal')} className="w-1/3 border border-gray-200 text-gray-600 font-semibold py-4 rounded-2xl hover:bg-gray-50 transition-all">
-            ← Back
+            â† Back
           </button>
           <button type="submit" disabled={loading} className="w-2/3 bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 rounded-2xl transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-60">
-            {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : 'Next — Matric Results →'}
+            {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : 'Next â€” Matric Results â†’'}
           </button>
         </div>
       </form>

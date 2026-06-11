@@ -1,10 +1,11 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { BookOpen, Briefcase, FileText, Sparkles, LogOut, User, GraduationCap } from 'lucide-react'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 export default function DashboardPage() {
   const router = useRouter()
@@ -82,7 +83,7 @@ export default function DashboardPage() {
       title: 'AI Career Guide',
       description: 'Get personalised career advice',
       icon: Sparkles,
-      color: 'bg-yellow-50 text-yellow-700',
+      color: 'bg-red-50 text-red-700',
       href: '/agent',
     },
     {
@@ -107,12 +108,10 @@ export default function DashboardPage() {
       <div className="bg-blue-900 text-white px-4 py-4">
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold">
-              Uni<span className="text-yellow-400">Path</span>
-            </h1>
+            <Logo />
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/profile" className="w-9 h-9 bg-yellow-400 rounded-full flex items-center justify-center text-blue-900 font-bold text-sm hover:bg-yellow-300 transition-all">
+            <Link href="/profile" className="w-9 h-9 bg-red-500 rounded-full flex items-center justify-center text-blue-900 font-bold text-sm hover:bg-red-400 transition-all">
               {initials}
             </Link>
             <button onClick={handleSignOut} className="text-blue-300 hover:text-white transition-all">
@@ -125,7 +124,7 @@ export default function DashboardPage() {
       <div className="max-w-2xl mx-auto px-4 py-6">
         {/* Welcome */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">Welcome back, {firstName}! 👋</h2>
+          <h2 className="text-2xl font-bold text-gray-900">Welcome back, {firstName}! ðŸ‘‹</h2>
           <p className="text-gray-500 text-sm mt-1">Let's find the perfect university for you</p>
         </div>
 
@@ -137,19 +136,19 @@ export default function DashboardPage() {
                 <p className="text-blue-300 text-xs font-medium">Your APS Score</p>
                 <p className="text-4xl font-bold mt-1">{aps}<span className="text-lg text-blue-300">/42</span></p>
                 <p className="text-blue-300 text-xs mt-1">
-                  {aps >= 30 ? '🌟 Excellent — qualifies for most degrees' :
-                   aps >= 24 ? '✅ Good — wide range of options' :
-                   aps >= 18 ? '👍 Average — many options available' :
-                   '📚 Keep working hard!'}
+                  {aps >= 30 ? 'ðŸŒŸ Excellent â€” qualifies for most degrees' :
+                   aps >= 24 ? 'âœ… Good â€” wide range of options' :
+                   aps >= 18 ? 'ðŸ‘ Average â€” many options available' :
+                   'ðŸ“š Keep working hard!'}
                 </p>
               </div>
               <div className="w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center">
-                <GraduationCap size={32} className="text-yellow-400" />
+                <GraduationCap size={32} className="text-red-500" />
               </div>
             </div>
             <div className="mt-3 bg-blue-800 rounded-full h-2">
               <div
-                className="bg-yellow-400 h-2 rounded-full transition-all"
+                className="bg-red-500 h-2 rounded-full transition-all"
                 style={{ width: `${(aps / 42) * 100}%` }}
               />
             </div>
@@ -158,14 +157,14 @@ export default function DashboardPage() {
 
         {/* Incomplete profile notice */}
         {!profile?.onboarding_complete && (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-4 mb-6">
-            <p className="text-sm font-semibold text-yellow-800">Complete your profile</p>
-            <p className="text-xs text-yellow-600 mt-1">Finish setting up to unlock all features</p>
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6">
+            <p className="text-sm font-semibold text-red-800">Complete your profile</p>
+            <p className="text-xs text-red-600 mt-1">Finish setting up to unlock all features</p>
             <button
               onClick={() => router.push('/onboarding/personal')}
-              className="mt-2 text-xs bg-yellow-400 text-blue-900 font-semibold px-3 py-1.5 rounded-xl hover:bg-yellow-300"
+              className="mt-2 text-xs bg-red-500 text-blue-900 font-semibold px-3 py-1.5 rounded-xl hover:bg-red-400"
             >
-              Continue Setup →
+              Continue Setup â†’
             </button>
           </div>
         )}
@@ -203,7 +202,7 @@ export default function DashboardPage() {
       {/* Floating AI Button */}
       <Link
         href="/agent"
-        className="fixed bottom-6 right-6 bg-yellow-400 text-blue-900 p-4 rounded-full shadow-lg hover:bg-yellow-300 transition-all flex items-center gap-2 font-semibold text-sm"
+        className="fixed bottom-6 right-6 bg-red-500 text-blue-900 p-4 rounded-full shadow-lg hover:bg-red-400 transition-all flex items-center gap-2 font-semibold text-sm"
       >
         <Sparkles size={20} />
         <span>Career Guide</span>

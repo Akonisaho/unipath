@@ -3,7 +3,7 @@ import { LogoDark } from '@/components/Logo'
 
 export default function WelcomePage() {
   return (
-    <main className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
+    <main className="min-h-screen bg-[#fef9f0] flex flex-col items-center justify-center px-6">
       <div className="text-center max-w-lg">
 
         {/* Logo */}
@@ -23,15 +23,15 @@ export default function WelcomePage() {
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-10">
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4">
+          <div className="bg-white border border-[#f0e8d8] rounded-2xl p-4">
             <p className="text-[#1a1a2e] text-2xl font-bold">26</p>
             <p className="text-gray-500 text-sm">Universities</p>
           </div>
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4">
+          <div className="bg-white border border-[#f0e8d8] rounded-2xl p-4">
             <p className="text-[#1a1a2e] text-2xl font-bold">99+</p>
             <p className="text-gray-500 text-sm">Courses</p>
           </div>
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4">
+          <div className="bg-white border border-[#f0e8d8] rounded-2xl p-4">
             <p className="text-[#1a1a2e] text-2xl font-bold">R0</p>
             <p className="text-gray-500 text-sm">Cost to You</p>
           </div>

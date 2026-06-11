@@ -187,7 +187,7 @@ export default function ApplicationsPage() {
           </button>
           <div>
             <h1 className="text-lg font-bold">My Applications</h1>
-            <p className="text-blue-300 text-xs">{totalApps} started Â· {submitted} submitted Â· {accepted} accepted</p>
+            <p className="text-blue-300 text-xs">{totalApps} started · {submitted} submitted · {accepted} accepted</p>
           </div>
         </div>
       </div>
@@ -215,7 +215,7 @@ export default function ApplicationsPage() {
           <ol className="text-xs text-blue-700 space-y-1 list-decimal list-inside">
             <li>Select universities for each course below</li>
             <li>Click the university link to go to their portal</li>
-            <li>Your profile info is saved â€” use it to fill in their form</li>
+            <li>Your profile info is saved — use it to fill in their form</li>
             <li>Mark as submitted once done</li>
           </ol>
         </div>
@@ -247,14 +247,14 @@ export default function ApplicationsPage() {
                 >
                   <div>
                     <p className="font-semibold text-gray-900 text-sm">{course.name}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{course.faculty} Â· APS {course.min_aps}+ Â· {course.duration}</p>
+                    <p className="text-xs text-gray-400 mt-0.5">{course.faculty} · APS {course.min_aps}+ · {course.duration}</p>
                     {courseApps.length > 0 && (
                       <div className="flex gap-1.5 mt-1.5 flex-wrap">
                         {courseApps.map((app: any) => {
                           const cfg = STATUS_CONFIG[app.status] || STATUS_CONFIG.draft
                           return (
                             <span key={app.id} className={`text-xs px-2 py-0.5 rounded-full font-medium ${cfg.color}`}>
-                              {app.university_name?.split(' ').slice(-1)[0]} â€” {cfg.label}
+                              {app.university_name?.split(' ').slice(-1)[0]} — {cfg.label}
                             </span>
                           )
                         })}

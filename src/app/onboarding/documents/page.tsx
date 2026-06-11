@@ -101,7 +101,7 @@ export default function DocumentsPage() {
         {['Personal', 'Guardian', 'Matric', 'Documents', 'Interests'].map((step, i) => (
           <div key={step} className="flex items-center">
             <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${i < 3 ? 'bg-green-500 text-white' : i === 3 ? 'bg-blue-900 text-white' : 'bg-gray-100 text-gray-400'}`}>
-              {i < 3 ? 'âœ“' : i + 1}
+              {i < 3 ? '✓' : i + 1}
             </div>
             <span className={`ml-1 text-xs hidden sm:block ${i === 3 ? 'text-blue-900 font-semibold' : i < 3 ? 'text-green-600' : 'text-gray-400'}`}>{step}</span>
             {i < 4 && <div className="w-6 sm:w-12 h-px bg-gray-200 mx-2" />}
@@ -110,18 +110,18 @@ export default function DocumentsPage() {
       </div>
 
       <h2 className="text-xl font-bold text-gray-900 mb-1">Upload Documents</h2>
-      <p className="text-gray-500 text-sm mb-2">Upload your documents â€” max 5MB per file. PDF, JPG or PNG accepted.</p>
+      <p className="text-gray-500 text-sm mb-2">Upload your documents — max 5MB per file. PDF, JPG or PNG accepted.</p>
 
       {/* Important notice */}
       <div className="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6 space-y-2">
-        <p className="text-sm font-bold text-red-800">âš ï¸ Before uploading please ensure:</p>
+        <p className="text-sm font-bold text-red-800">⚠️ Before uploading please ensure:</p>
         <ul className="space-y-1">
           {[
             'Documents must be certified by a Commissioner of Oaths',
             'Copies must be clear, readable and all pages included',
             'Make sure you are uploading the CORRECT document',
             'Certified copies must not be older than 3 months',
-            'File must be PDF, JPG or PNG â€” max 5MB',
+            'File must be PDF, JPG or PNG — max 5MB',
           ].map((item, i) => (
             <li key={i} className="text-xs text-red-700 flex items-start gap-2">
               <span className="text-red-600 mt-0.5">•</span>
@@ -198,14 +198,14 @@ export default function DocumentsPage() {
           onClick={() => router.push('/onboarding/matric')}
           className="w-1/3 border border-gray-200 text-gray-600 font-semibold py-4 rounded-2xl hover:bg-gray-50 transition-all"
         >
-          â† Back
+          ← Back
         </button>
         <button
           onClick={handleSubmit}
           disabled={loading}
           className="w-2/3 bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 rounded-2xl transition-all flex items-center justify-center gap-2 disabled:opacity-60"
         >
-          {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : 'Next â€” Course Interests →'}
+          {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : 'Next — Course Interests →'}
         </button>
       </div>
     </div>

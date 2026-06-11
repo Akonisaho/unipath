@@ -131,7 +131,7 @@ export default function UsersAdminPage() {
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Users</h1>
           <p className="text-gray-500 text-sm mt-1">
-            {admins.length} admins Â· {students.length} learners
+            {admins.length} admins · {students.length} learners
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -214,7 +214,7 @@ export default function UsersAdminPage() {
               </div>
               <div className="bg-red-50 border border-red-200 rounded-xl p-3">
                 <p className="text-xs text-red-700">
-                  âš ï¸ A temporary password will be generated. Share it securely with the new admin â€” they must change it after first login.
+                  ⚠️ A temporary password will be generated. Share it securely with the new admin — they must change it after first login.
                 </p>
               </div>
               <div className="flex gap-3">
@@ -256,7 +256,7 @@ export default function UsersAdminPage() {
                     {admins.map(user => (
                       <tr key={user.id} className="hover:bg-gray-50">
                         <td className="px-4 py-3">
-                          <p className="text-sm font-medium text-gray-900">{user.full_name || 'â€”'}</p>
+                          <p className="text-sm font-medium text-gray-900">{user.full_name || '—'}</p>
                         </td>
                         <td className="px-4 py-3">
                           <p className="text-xs text-gray-500">{user.email}</p>
@@ -300,16 +300,16 @@ export default function UsersAdminPage() {
                   ) : students.map(user => (
                     <tr key={user.id} className="hover:bg-gray-50">
                       <td className="px-4 py-3">
-                        <p className="text-sm font-medium text-gray-900">{user.full_name || 'â€”'}</p>
+                        <p className="text-sm font-medium text-gray-900">{user.full_name || '—'}</p>
                       </td>
                       <td className="px-4 py-3">
                         <p className="text-xs text-gray-500">{user.email}</p>
                       </td>
                       <td className="px-4 py-3">
-                        <p className="text-xs text-gray-500">{user.province || 'â€”'}</p>
+                        <p className="text-xs text-gray-500">{user.province || '—'}</p>
                       </td>
                       <td className="px-4 py-3">
-                        <p className="text-xs text-gray-500">{user.school_name || 'â€”'}</p>
+                        <p className="text-xs text-gray-500">{user.school_name || '—'}</p>
                       </td>
                       <td className="px-4 py-3">
                         <span className={`text-xs px-2 py-1 rounded-full font-medium ${

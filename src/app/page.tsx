@@ -1,61 +1,60 @@
-﻿import Link from 'next/link'
+import Link from 'next/link'
+import { LogoDark } from '@/components/Logo'
 
 export default function WelcomePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 flex flex-col items-center justify-center px-6">
+    <main className="min-h-screen bg-white flex flex-col items-center justify-center px-6">
       <div className="text-center max-w-lg">
+
         {/* Logo */}
-        <div className="mb-8">
-          <h1 className="text-6xl font-bold text-white tracking-tight">
-            Uni<span className="text-red-500">Path</span>
-          </h1>
-          <p className="text-blue-200 text-lg mt-2">
-            Your future starts here
-          </p>
+        <div className="flex justify-center mb-4">
+          <LogoDark size="lg" />
         </div>
 
+        <p className="text-gray-500 text-lg mt-1 mb-8">Your future starts here</p>
+
         {/* Tagline */}
-        <p className="text-white text-xl font-medium mb-2">
+        <p className="text-gray-900 text-xl font-semibold mb-1">
           Apply to all South African universities
         </p>
-        <p className="text-blue-200 text-lg mb-10">
-          in one click. Free. Forever.
+        <p className="text-gray-500 text-lg mb-10">
+          in one place. Free. Forever.
         </p>
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-10">
-          <div className="bg-white/10 rounded-2xl p-4">
-            <p className="text-white text-2xl font-bold">26</p>
-            <p className="text-blue-200 text-sm">Universities</p>
+          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4">
+            <p className="text-[#1a1a2e] text-2xl font-bold">26</p>
+            <p className="text-gray-500 text-sm">Universities</p>
           </div>
-          <div className="bg-white/10 rounded-2xl p-4">
-            <p className="text-white text-2xl font-bold">1</p>
-            <p className="text-blue-200 text-sm">Click to Apply</p>
+          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4">
+            <p className="text-[#1a1a2e] text-2xl font-bold">99+</p>
+            <p className="text-gray-500 text-sm">Courses</p>
           </div>
-          <div className="bg-white/10 rounded-2xl p-4">
-            <p className="text-white text-2xl font-bold">R0</p>
-            <p className="text-blue-200 text-sm">Cost to You</p>
+          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4">
+            <p className="text-[#1a1a2e] text-2xl font-bold">R0</p>
+            <p className="text-gray-500 text-sm">Cost to You</p>
           </div>
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
           <Link
             href="/register"
-            className="bg-red-500 hover:bg-red-400 text-blue-900 font-bold text-lg py-4 px-8 rounded-2xl transition-all duration-200 shadow-lg"
+            className="bg-[#e94560] hover:bg-[#c73550] text-white font-bold text-lg py-4 px-8 rounded-2xl transition-all duration-200 shadow-sm"
           >
-            Get Started â€” It's Free
+            Get Started - It&apos;s Free
           </Link>
           <Link
             href="/login"
-            className="bg-white/10 hover:bg-white/20 text-white font-semibold text-lg py-4 px-8 rounded-2xl transition-all duration-200 border border-white/20"
+            className="bg-white hover:bg-gray-50 text-[#1a1a2e] font-semibold text-lg py-4 px-8 rounded-2xl transition-all duration-200 border border-gray-200"
           >
             Sign In
           </Link>
         </div>
 
-        <p className="text-blue-300 text-sm mt-8">
-          Built for every Grade 12 learner in South Africa ðŸ‡¿ðŸ‡¦
+        <p className="text-gray-400 text-sm mt-8">
+          Built for every Grade 12 learner in South Africa
         </p>
       </div>
     </main>

@@ -60,7 +60,7 @@ export default function AgentPage() {
       const subjectList = matricData?.map((s: any) => s.subject).join(', ') || 'your subjects'
       setMessages([{
         role: 'assistant',
-        content: `Hi ${firstName}! ðŸ‘‹ I'm your UniPath Career Guide.\n\nI can see your APS score is **${apsData?.total_aps || 0}** and you studied ${subjectList}.\n\nI'm here to help you find the right courses, universities and career paths. What would you like to know?`
+        content: `Hi ${firstName}! 👋 I'm your UniPath Career Guide.\n\nI can see your APS score is **${apsData?.total_aps || 0}** and you studied ${subjectList}.\n\nI'm here to help you find the right courses, universities and career paths. What would you like to know?`
       }])
 
       setLoading(false)
@@ -142,7 +142,7 @@ export default function AgentPage() {
         </div>
         <div>
           <p className="text-sm font-bold">UniPath Career Guide</p>
-          <p className="text-xs text-blue-300">AI-powered Â· Always here to help</p>
+          <p className="text-xs text-blue-300">AI-powered · Always here to help</p>
         </div>
         <div className="ml-auto bg-green-400 w-2 h-2 rounded-full" />
       </div>

@@ -196,8 +196,8 @@ function ResultsInner() {
         <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
           {[
             { key: 'qualify', label: `✅ Qualify (${qualifyCount})` },
-            { key: 'close', label: `âš¡ Almost (${closeCount})` },
-            { key: 'all', label: `ðŸ“š All (${courses.length})` },
+            { key: 'close', label: `⚡ Almost (${closeCount})` },
+            { key: 'all', label: `📚 All (${courses.length})` },
           ].map(tab => (
             <button
               key={tab.key}
@@ -229,7 +229,7 @@ function ResultsInner() {
         {/* Wishlist hint */}
         {wishlist.length === 0 && (
           <div className="bg-blue-50 border border-blue-200 rounded-2xl p-3 mb-4 text-center">
-            <p className="text-xs text-blue-700">👍¡ Tap the <span className="font-bold">heart â¤ï¸</span> on any course to add it to your wishlist for applications</p>
+            <p className="text-xs text-blue-700">👍¡ Tap the <span className="font-bold">heart ❤️</span> on any course to add it to your wishlist for applications</p>
           </div>
         )}
 
@@ -272,7 +272,7 @@ function ResultsInner() {
                       }`}>{course.level}</span>
                     </div>
                     <p className="text-xs text-gray-500 mt-1">
-                      {course.faculty} Â· {course.duration} Â· Min APS {course.min_aps}
+                      {course.faculty} · {course.duration} · Min APS {course.min_aps}
                     </p>
                     {course.qualifies && (
                       <p className="text-xs text-green-600 font-medium mt-1">
@@ -281,7 +281,7 @@ function ResultsInner() {
                     )}
                     {course.close && !course.qualifies && (
                       <p className="text-xs text-red-600 font-medium mt-1">
-                        âš¡ Need {course.min_aps - aps} more APS points
+                        ⚡ Need {course.min_aps - aps} more APS points
                       </p>
                     )}
                   </div>
@@ -328,7 +328,7 @@ function ResultsInner() {
                             <div className="flex items-center gap-2">
                               <span className="text-gray-400">Min: {req.required}%</span>
                               <span className={`font-semibold ${req.met ? 'text-green-600' : 'text-red-500'}`}>
-                                {req.met ? '✅' : 'âŒ'} You: {req.got > 0 ? `${req.got}%` : 'Not taken'}
+                                {req.met ? '✅' : '✗'} You: {req.got > 0 ? `${req.got}%` : 'Not taken'}
                               </span>
                             </div>
                           </div>
@@ -385,7 +385,7 @@ function ResultsInner() {
                   )}
 
                   <p className="text-xs text-gray-400 italic">
-                    âš ï¸ Requirements based on 2026 prospectus â€” always verify with institution
+                    ⚠️ Requirements based on 2026 prospectus — always verify with institution
                   </p>
                 </div>
               )}
@@ -396,7 +396,7 @@ function ResultsInner() {
         {/* Wishlist Summary */}
         {wishlist.length > 0 && (
           <div className="bg-green-50 border border-green-200 rounded-2xl p-4 mb-6">
-            <p className="text-sm font-bold text-green-800">â¤ï¸ {wishlist.length} course{wishlist.length > 1 ? 's' : ''} in your wishlist</p>
+            <p className="text-sm font-bold text-green-800">❤️ {wishlist.length} course{wishlist.length > 1 ? 's' : ''} in your wishlist</p>
             <p className="text-xs text-green-600 mt-1">These will be saved for your applications after onboarding</p>
           </div>
         )}
@@ -407,7 +407,7 @@ function ResultsInner() {
             onClick={() => router.push('/onboarding/matric')}
             className="w-1/3 border border-gray-200 text-gray-600 py-3 rounded-2xl text-sm font-semibold hover:bg-gray-50"
           >
-            â† Back
+            ← Back
           </button>
           <button
             onClick={handleContinue}

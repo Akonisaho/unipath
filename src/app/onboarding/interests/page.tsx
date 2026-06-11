@@ -7,10 +7,10 @@ import { Loader2, Check } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 const CAREER_FIELDS = [
-  'ðŸ¥ Health & Medicine', 'âš–ï¸ Law & Justice', '👍¼ Business & Finance',
-  '👍» Technology & IT', 'ðŸ—ï¸ Engineering', 'ðŸŽ“ Education & Teaching',
-  'ðŸŽ¨ Arts & Design', 'ðŸŒ± Agriculture & Environment', 'âœˆï¸ Aviation & Tourism',
-  'ðŸ”¬ Science & Research', 'ðŸ›ï¸ Government & Public Service', 'ðŸ“º Media & Communication',
+  '🏥 Health & Medicine', '⚖️ Law & Justice', '👍¼ Business & Finance',
+  '👍» Technology & IT', '🏗️ Engineering', '🎓 Education & Teaching',
+  '🎨 Arts & Design', '🌱 Agriculture & Environment', '✈️ Aviation & Tourism',
+  '🔬 Science & Research', '🏛️ Government & Public Service', '📺 Media & Communication',
 ]
 
 const ALL_UNIVERSITIES = [
@@ -138,7 +138,7 @@ export default function InterestsPage() {
         onboarding_step: 6,
       }).eq('id', user.id)
 
-      toast.success('Profile complete! Welcome to UniPath ðŸŽ‰')
+      toast.success('Profile complete! Welcome to UniPath 🎉')
       router.push('/dashboard')
     } catch (error: any) {
       toast.error(error.message || 'Something went wrong')
@@ -154,7 +154,7 @@ export default function InterestsPage() {
         {['Personal', 'Guardian', 'Matric', 'Documents', 'Interests'].map((step, i) => (
           <div key={step} className="flex items-center">
             <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${i < 4 ? 'bg-green-500 text-white' : 'bg-blue-900 text-white'}`}>
-              {i < 4 ? 'âœ“' : '5'}
+              {i < 4 ? '✓' : '5'}
             </div>
             <span className={`ml-1 text-xs hidden sm:block ${i === 4 ? 'text-blue-900 font-semibold' : 'text-green-600'}`}>{step}</span>
             {i < 4 && <div className="w-6 sm:w-12 h-px bg-gray-200 mx-2" />}
@@ -163,7 +163,7 @@ export default function InterestsPage() {
       </div>
 
       <h2 className="text-xl font-bold text-gray-900 mb-1">Course & University Interests</h2>
-      <p className="text-gray-500 text-sm mb-6">Tell us what you want to study â€” UniPath will apply to all your selected universities!</p>
+      <p className="text-gray-500 text-sm mb-6">Tell us what you want to study — UniPath will apply to all your selected universities!</p>
 
       {/* Career Fields */}
       <div className="mb-6">
@@ -276,14 +276,14 @@ export default function InterestsPage() {
           onClick={() => router.push('/onboarding/documents')}
           className="w-1/3 border border-gray-200 text-gray-600 font-semibold py-4 rounded-2xl hover:bg-gray-50 transition-all"
         >
-          â† Back
+          ← Back
         </button>
         <button
           onClick={handleSubmit}
           disabled={loading}
           className="w-2/3 bg-red-500 hover:bg-red-400 text-blue-900 font-bold py-4 rounded-2xl transition-all flex items-center justify-center gap-2 disabled:opacity-60"
         >
-          {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : 'ðŸŽ‰ Complete Profile & Go to Dashboard'}
+          {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : '🎉 Complete Profile & Go to Dashboard'}
         </button>
       </div>
     </div>

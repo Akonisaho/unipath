@@ -11,7 +11,7 @@ export default function OnboardingLayout({
         <div className="flex flex-col items-center mb-6">
           <LogoDark size="md" />
           <p className="text-gray-500 text-sm mt-2">
-            {"Let's set up your profile â€” takes less than 5 minutes"}
+            {"Let's set up your profile — takes less than 5 minutes"}
           </p>
         </div>
         {children}

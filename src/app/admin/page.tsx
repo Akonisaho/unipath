@@ -40,8 +40,8 @@ export default function AdminPage() {
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Welcome back, Takalani ðŸ‘‹</h1>
-        <p className="text-gray-500 text-sm mt-1">UniPath Admin Dashboard â€” {new Date().getFullYear()}</p>
+        <h1 className="text-2xl font-bold text-gray-900">Welcome back, Takalani 👋</h1>
+        <p className="text-gray-500 text-sm mt-1">UniPath Admin Dashboard — {new Date().getFullYear()}</p>
       </div>
 
       <div className="grid grid-cols-4 gap-6 mb-8">
@@ -57,7 +57,7 @@ export default function AdminPage() {
       </div>
 
       <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-        <p className="text-sm font-bold text-red-800 mb-2">ðŸ“‹ Annual Tasks</p>
+        <p className="text-sm font-bold text-red-800 mb-2">📋 Annual Tasks</p>
         <ul className="space-y-2">
           {[
             'Upload new university prospectuses for 2026',
@@ -67,7 +67,7 @@ export default function AdminPage() {
             'Verify NSFAS funding availability',
           ].map((task, i) => (
             <li key={i} className="text-xs text-red-700 flex items-center gap-2">
-              <span>â˜</span> {task}
+              <span>○</span> {task}
             </li>
           ))}
         </ul>

@@ -117,7 +117,7 @@ export default function CareersPage() {
           </button>
           <div>
             <h1 className="text-lg font-bold">Explore Careers</h1>
-            <p className="text-blue-300 text-xs">{CAREERS_DATA.length} careers Â· South African salary data</p>
+            <p className="text-blue-300 text-xs">{CAREERS_DATA.length} careers · South African salary data</p>
           </div>
         </div>
       </div>
@@ -182,7 +182,7 @@ export default function CareersPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <p className="text-sm font-semibold text-gray-900">{career.title}</p>
-                      {qualifies && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">âœ“ Qualify</span>}
+                      {qualifies && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">✓ Qualify</span>}
                     </div>
                     <p className="text-xs text-gray-400 mt-0.5">{career.field}</p>
                     <div className="flex items-center gap-3 mt-1.5">
@@ -218,7 +218,7 @@ export default function CareersPage() {
                       <div className="flex flex-wrap gap-1.5">
                         {career.subjects.map(s => (
                           <span key={s} className={`text-xs px-2 py-0.5 rounded-full font-medium ${subjects.includes(s) ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
-                            {subjects.includes(s) ? 'âœ“ ' : ''}{s}
+                            {subjects.includes(s) ? '✓ ' : ''}{s}
                           </span>
                         ))}
                       </div>

@@ -88,7 +88,7 @@ export default function CoursesPage() {
             <div>
               <h1 className="text-lg font-bold">Browse Courses</h1>
               <p className="text-blue-300 text-xs">
-                {aps !== null ? `APS ${aps}/42 Â· ` : ''}{wishlist.length} wishlisted
+                {aps !== null ? `APS ${aps}/42 · ` : ''}{wishlist.length} wishlisted
               </p>
             </div>
           </div>
@@ -164,10 +164,10 @@ export default function CoursesPage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
                         <p className="text-sm font-semibold text-gray-900">{course.name}</p>
-                        {qualifies && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">âœ“ Qualify</span>}
+                        {qualifies && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">✓ Qualify</span>}
                         {close && <span className="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-medium">Almost</span>}
                       </div>
-                      <p className="text-xs text-gray-400 mt-0.5">{course.faculty} Â· APS {course.min_aps}+ Â· {course.duration || '3 years'}</p>
+                      <p className="text-xs text-gray-400 mt-0.5">{course.faculty} · APS {course.min_aps}+ · {course.duration || '3 years'}</p>
                       <p className="text-xs text-gray-400">{unis.length} {unis.length === 1 ? 'university' : 'universities'}</p>
                     </div>
 
@@ -229,7 +229,7 @@ export default function CoursesPage() {
                                 <div className="flex items-center gap-2">
                                   <span className="text-xs text-gray-400">APS {uni.min_aps}+</span>
                                   {uni.application_deadline && (
-                                    <span className="text-xs text-gray-400">Â· {uni.application_deadline}</span>
+                                    <span className="text-xs text-gray-400">· {uni.application_deadline}</span>
                                   )}
                                 </div>
                               </div>
@@ -242,7 +242,7 @@ export default function CoursesPage() {
                         onClick={() => toggleWishlist(course.id)}
                         className={`w-full py-2.5 rounded-xl text-sm font-semibold transition-all ${inWishlist ? 'bg-red-50 text-red-600 hover:bg-red-100' : 'bg-blue-900 text-white hover:bg-blue-800'}`}
                       >
-                        {inWishlist ? 'â™¡ Remove from wishlist' : 'â™¥ Add to wishlist'}
+                        {inWishlist ? '♡ Remove from wishlist' : '♥ Add to wishlist'}
                       </button>
                     </div>
                   )}

@@ -124,7 +124,7 @@ export default function DashboardPage() {
       <div className="max-w-2xl mx-auto px-4 py-6">
         {/* Welcome */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">Welcome back, {firstName}! ðŸ‘‹</h2>
+          <h2 className="text-2xl font-bold text-gray-900">Welcome back, {firstName}! 👋</h2>
           <p className="text-gray-500 text-sm mt-1">Let's find the perfect university for you</p>
         </div>
 
@@ -136,10 +136,10 @@ export default function DashboardPage() {
                 <p className="text-blue-300 text-xs font-medium">Your APS Score</p>
                 <p className="text-4xl font-bold mt-1">{aps}<span className="text-lg text-blue-300">/42</span></p>
                 <p className="text-blue-300 text-xs mt-1">
-                  {aps >= 30 ? '🌟 Excellent â€” qualifies for most degrees' :
-                   aps >= 24 ? '✅ Good â€” wide range of options' :
-                   aps >= 18 ? 'ðŸ‘ Average â€” many options available' :
-                   'ðŸ“š Keep working hard!'}
+                  {aps >= 30 ? '🌟 Excellent — qualifies for most degrees' :
+                   aps >= 24 ? '✅ Good — wide range of options' :
+                   aps >= 18 ? '👍 Average — many options available' :
+                   '📚 Keep working hard!'}
                 </p>
               </div>
               <div className="w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center">

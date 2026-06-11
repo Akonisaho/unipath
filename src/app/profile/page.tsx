@@ -23,7 +23,7 @@ function Row({ label, value }: { label: string; value?: string }) {
   return (
     <div className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
       <span className="text-xs text-gray-500 w-32 shrink-0">{label}</span>
-      <span className="text-sm text-gray-800 font-medium text-right">{value || 'â€”'}</span>
+      <span className="text-sm text-gray-800 font-medium text-right">{value || '—'}</span>
     </div>
   )
 }
@@ -133,7 +133,7 @@ export default function ProfilePage() {
             {initials}
           </div>
           <div>
-            <p className="text-xl font-bold text-gray-900">{profile?.full_name || 'â€”'}</p>
+            <p className="text-xl font-bold text-gray-900">{profile?.full_name || '—'}</p>
             <p className="text-sm text-gray-500">{profile?.email}</p>
             {profile?.school_name && <p className="text-xs text-gray-400 mt-0.5">{profile.school_name}</p>}
           </div>
@@ -147,7 +147,7 @@ export default function ProfilePage() {
                 <p className="text-blue-300 text-xs font-medium">APS Score</p>
                 <p className="text-4xl font-bold mt-1">{aps}<span className="text-lg text-blue-300">/42</span></p>
                 <p className="text-blue-300 text-xs mt-1">
-                  {aps >= 30 ? '🌟 Excellent' : aps >= 24 ? '✅ Good' : aps >= 18 ? 'ðŸ‘ Average' : 'ðŸ“š Keep working!'}
+                  {aps >= 30 ? '🌟 Excellent' : aps >= 24 ? '✅ Good' : aps >= 18 ? '👍 Average' : '📚 Keep working!'}
                 </p>
               </div>
               <GraduationCap size={36} className="text-red-500" />

@@ -333,7 +333,7 @@ export default function BursariesPage() {
 
                 <div className="mt-2 flex gap-2 flex-wrap">
                   <span className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full">{b.faculty}</span>
-                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{b.provinces === 'All provinces' ? 'ðŸ‡¿ðŸ‡¦ All provinces' : b.provinces}</span>
+                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{b.provinces === 'All provinces' ? '🇿🇦 All provinces' : b.provinces}</span>
                 </div>
 
                 <p className="text-xs text-gray-500 mt-2 leading-relaxed">{b.requirements}</p>

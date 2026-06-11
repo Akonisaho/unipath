@@ -28,7 +28,7 @@ const STEPS = [
   {
     number: 3,
     title: 'Register on myNSFAS',
-    description: 'Go to my.nsfas.org.za and create an account using your SA ID number. You must register yourself â€” do not pay anyone to do it for you.',
+    description: 'Go to my.nsfas.org.za and create an account using your SA ID number. You must register yourself — do not pay anyone to do it for you.',
   },
   {
     number: 4,
@@ -53,15 +53,15 @@ const FAQS = [
   },
   {
     q: 'What if my parents are deceased?',
-    a: 'If both parents are deceased you are classified as a Full Orphan and automatically qualify for NSFAS. Upload certified copies of death certificates. If one parent is deceased you are a Half Orphan â€” you still qualify but household income is still checked.',
+    a: 'If both parents are deceased you are classified as a Full Orphan and automatically qualify for NSFAS. Upload certified copies of death certificates. If one parent is deceased you are a Half Orphan — you still qualify but household income is still checked.',
   },
   {
     q: 'Can I apply to NSFAS and a bursary at the same time?',
-    a: 'Yes. In fact you should apply for both. Many bursaries top up your NSFAS allowance. NSFAS only covers public universities â€” private institutions are not covered.',
+    a: 'Yes. In fact you should apply for both. Many bursaries top up your NSFAS allowance. NSFAS only covers public universities — private institutions are not covered.',
   },
   {
     q: 'What is the NBT and do I need it for NSFAS?',
-    a: 'NBT (National Benchmark Tests) are required by most universities for admission â€” they are separate from NSFAS. NSFAS does not require NBT results.',
+    a: 'NBT (National Benchmark Tests) are required by most universities for admission — they are separate from NSFAS. NSFAS does not require NBT results.',
   },
   {
     q: 'What happens if I fail a year?',
@@ -127,7 +127,7 @@ export default function NsfasPage() {
             <div>
               <p className="font-semibold text-blue-800 text-sm">Check your household income</p>
               <p className="text-xs text-blue-700 mt-0.5">
-                You qualify if your combined family income is under <strong>R350,000/year</strong>. If unsure, apply anyway â€” NSFAS will assess you.
+                You qualify if your combined family income is under <strong>R350,000/year</strong>. If unsure, apply anyway — NSFAS will assess you.
               </p>
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function NsfasPage() {
             ].map(({ item, covered }) => (
               <div key={item} className="flex items-center gap-3">
                 <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${covered ? 'bg-green-100' : 'bg-red-100'}`}>
-                  <span className={`text-xs font-bold ${covered ? 'text-green-700' : 'text-red-600'}`}>{covered ? 'âœ“' : 'âœ—'}</span>
+                  <span className={`text-xs font-bold ${covered ? 'text-green-700' : 'text-red-600'}`}>{covered ? '✓' : '✗'}</span>
                 </div>
                 <span className="text-sm text-gray-700">{item}</span>
               </div>
@@ -178,7 +178,7 @@ export default function NsfasPage() {
 
         {/* Step by step */}
         <div className="bg-white rounded-2xl p-5 border border-gray-100">
-          <p className="font-semibold text-gray-900 mb-4">How to apply â€” Step by step</p>
+          <p className="font-semibold text-gray-900 mb-4">How to apply — Step by step</p>
           <div className="space-y-4">
             {STEPS.map(step => (
               <div key={step.number} className="flex gap-4">
@@ -206,7 +206,7 @@ export default function NsfasPage() {
 
         {/* Warning */}
         <div className="bg-red-50 border border-red-100 rounded-2xl p-4">
-          <p className="text-sm font-semibold text-red-800 mb-1">âš ï¸ Avoid NSFAS scams</p>
+          <p className="text-sm font-semibold text-red-800 mb-1">⚠️ Avoid NSFAS scams</p>
           <p className="text-xs text-red-700 leading-relaxed">
             NSFAS applications are completely free. Never pay anyone to apply for you. Only use my.nsfas.org.za.
             Beware of WhatsApp groups and social media pages asking for money to "secure" funding.

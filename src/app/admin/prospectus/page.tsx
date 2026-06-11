@@ -187,7 +187,7 @@ export default function ProspectusPage() {
     <div className="p-8">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">Upload Prospectus</h1>
-        <p className="text-gray-500 text-sm mt-1">Upload university prospectus PDFs â€” AI will extract course information automatically</p>
+        <p className="text-gray-500 text-sm mt-1">Upload university prospectus PDFs — AI will extract course information automatically</p>
       </div>
 
       {/* Upload Form */}
@@ -231,7 +231,7 @@ export default function ProspectusPage() {
             <>
               <Upload size={32} className="text-gray-400 mb-2" />
               <p className="text-sm font-medium text-gray-700">Click to upload prospectus PDF</p>
-              <p className="text-xs text-gray-400 mt-1">PDF or TXT â€” max 50MB</p>
+              <p className="text-xs text-gray-400 mt-1">PDF or TXT — max 50MB</p>
             </>
           )}
           <input type="file" accept=".pdf,.txt" className="hidden" onChange={e => {
@@ -264,7 +264,7 @@ export default function ProspectusPage() {
                   />
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-gray-900">{course.name}</p>
-                    <p className="text-xs text-gray-500">{course.faculty} Â· APS {course.min_aps}+ Â· {course.duration}</p>
+                    <p className="text-xs text-gray-500">{course.faculty} · APS {course.min_aps}+ · {course.duration}</p>
                     {course.subject_requirements?.length > 0 && (
                       <div className="flex flex-wrap gap-1 mt-1">
                         {course.subject_requirements.map((req: any, j: number) => (
@@ -317,7 +317,7 @@ export default function ProspectusPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-900">{upload.institution_name}</p>
-                    <p className="text-xs text-gray-500">{upload.file_name} Â· {upload.academic_year}</p>
+                    <p className="text-xs text-gray-500">{upload.file_name} · {upload.academic_year}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

@@ -36,8 +36,8 @@ const CAREERS_DATA = [
   { title: 'Systems Administrator', field: 'Technology', salaryMin: 20000, salaryMax: 70000, outlook: 'Stable', subjects: ['Mathematics', 'Information Technology'], aps: 20, description: 'Maintain and manage IT infrastructure, servers, and networks.' },
 
   // Education
-  { title: 'Primary School Teacher', field: 'Education', salaryMin: 18000, salaryMax: 45000, outlook: 'Stable', subjects: ['Any home language', 'Mathematics Literacy'], aps: 18, description: 'Educate children in Grades Râ€“7 across all subjects.' },
-  { title: 'High School Teacher', field: 'Education', salaryMin: 20000, salaryMax: 55000, outlook: 'Stable', subjects: ['Subject of specialisation'], aps: 22, description: 'Teach specific subjects to learners in Grades 8â€“12.' },
+  { title: 'Primary School Teacher', field: 'Education', salaryMin: 18000, salaryMax: 45000, outlook: 'Stable', subjects: ['Any home language', 'Mathematics Literacy'], aps: 18, description: 'Educate children in Grades R—7 across all subjects.' },
+  { title: 'High School Teacher', field: 'Education', salaryMin: 20000, salaryMax: 55000, outlook: 'Stable', subjects: ['Subject of specialisation'], aps: 22, description: 'Teach specific subjects to learners in Grades 8—12.' },
   { title: 'School Principal', field: 'Education', salaryMin: 40000, salaryMax: 90000, outlook: 'Stable', subjects: ['Any'], aps: 24, description: 'Lead and manage a school, overseeing academic performance and staff.' },
 
   // Law
@@ -187,7 +187,7 @@ export default function CareersPage() {
                     <p className="text-xs text-gray-400 mt-0.5">{career.field}</p>
                     <div className="flex items-center gap-3 mt-1.5">
                       <span className="text-xs font-semibold text-gray-700">
-                        {formatSalary(career.salaryMin)}â€“{formatSalary(career.salaryMax)}/month
+                        {formatSalary(career.salaryMin)}—{formatSalary(career.salaryMax)}/month
                       </span>
                       <div className="flex items-center gap-1">
                         <OutlookIcon outlook={career.outlook} />
@@ -209,7 +209,7 @@ export default function CareersPage() {
                       </div>
                       <div className="bg-gray-50 rounded-xl p-3">
                         <p className="text-xs text-gray-400">Salary range</p>
-                        <p className="text-sm font-bold text-gray-800 mt-0.5">{formatSalary(career.salaryMin)}â€“{formatSalary(career.salaryMax)}</p>
+                        <p className="text-sm font-bold text-gray-800 mt-0.5">{formatSalary(career.salaryMin)}—{formatSalary(career.salaryMax)}</p>
                       </div>
                     </div>
 
@@ -228,7 +228,7 @@ export default function CareersPage() {
                       href={`/courses?search=${encodeURIComponent(career.field)}`}
                       className="block text-center text-xs text-blue-600 hover:text-blue-800 font-medium py-1"
                     >
-                      Browse {career.field} courses â†’
+                      Browse {career.field} courses →
                     </Link>
                   </div>
                 )}

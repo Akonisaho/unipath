@@ -247,7 +247,7 @@ export default function NsfasPage() {
         </a>
 
         <Link href="/bursaries" className="block text-center text-sm text-blue-600 hover:text-blue-800 py-1">
-          Also browse bursaries and scholarships â†’
+          Also browse bursaries and scholarships →
         </Link>
       </div>
 

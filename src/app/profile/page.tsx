@@ -147,7 +147,7 @@ export default function ProfilePage() {
                 <p className="text-blue-300 text-xs font-medium">APS Score</p>
                 <p className="text-4xl font-bold mt-1">{aps}<span className="text-lg text-blue-300">/42</span></p>
                 <p className="text-blue-300 text-xs mt-1">
-                  {aps >= 30 ? 'ðŸŒŸ Excellent' : aps >= 24 ? 'âœ… Good' : aps >= 18 ? 'ðŸ‘ Average' : 'ðŸ“š Keep working!'}
+                  {aps >= 30 ? '🌟 Excellent' : aps >= 24 ? '✅ Good' : aps >= 18 ? 'ðŸ‘ Average' : 'ðŸ“š Keep working!'}
                 </p>
               </div>
               <GraduationCap size={36} className="text-red-500" />
@@ -249,7 +249,7 @@ export default function ProfilePage() {
               <p className="font-semibold text-gray-900">My Documents</p>
             </div>
             <Link href="/onboarding/documents" className="text-sm text-blue-600 hover:text-blue-800 font-medium">
-              Manage â†’
+              Manage →
             </Link>
           </div>
           {documents.length === 0 ? (

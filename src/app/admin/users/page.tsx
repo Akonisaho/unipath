@@ -166,7 +166,7 @@ export default function UsersAdminPage() {
 
           {newAdmin ? (
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-              <p className="text-sm font-bold text-green-800 mb-3">âœ… Admin account created!</p>
+              <p className="text-sm font-bold text-green-800 mb-3">✅ Admin account created!</p>
               <p className="text-xs text-green-700 mb-1">Share these credentials securely:</p>
               <div className="bg-white border border-green-200 rounded-xl p-4 mb-4 font-mono text-sm">
                 <p><span className="text-gray-500">Email:</span> {newAdmin.email}</p>
@@ -317,7 +317,7 @@ export default function UsersAdminPage() {
                             ? 'bg-green-100 text-green-700'
                             : 'bg-red-100 text-red-700'
                         }`}>
-                          {user.onboarding_complete ? 'âœ… Complete' : `Step ${user.onboarding_step || 1}`}
+                          {user.onboarding_complete ? '✅ Complete' : `Step ${user.onboarding_step || 1}`}
                         </span>
                       </td>
                       <td className="px-4 py-3">

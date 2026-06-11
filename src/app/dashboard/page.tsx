@@ -136,8 +136,8 @@ export default function DashboardPage() {
                 <p className="text-blue-300 text-xs font-medium">Your APS Score</p>
                 <p className="text-4xl font-bold mt-1">{aps}<span className="text-lg text-blue-300">/42</span></p>
                 <p className="text-blue-300 text-xs mt-1">
-                  {aps >= 30 ? 'ðŸŒŸ Excellent â€” qualifies for most degrees' :
-                   aps >= 24 ? 'âœ… Good â€” wide range of options' :
+                  {aps >= 30 ? '🌟 Excellent â€” qualifies for most degrees' :
+                   aps >= 24 ? '✅ Good â€” wide range of options' :
                    aps >= 18 ? 'ðŸ‘ Average â€” many options available' :
                    'ðŸ“š Keep working hard!'}
                 </p>
@@ -164,7 +164,7 @@ export default function DashboardPage() {
               onClick={() => router.push('/onboarding/personal')}
               className="mt-2 text-xs bg-red-500 text-blue-900 font-semibold px-3 py-1.5 rounded-xl hover:bg-red-400"
             >
-              Continue Setup â†’
+              Continue Setup →
             </button>
           </div>
         )}

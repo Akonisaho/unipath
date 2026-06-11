@@ -7,8 +7,8 @@ import { Loader2, Check } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 const CAREER_FIELDS = [
-  'ðŸ¥ Health & Medicine', 'âš–ï¸ Law & Justice', 'ðŸ’¼ Business & Finance',
-  'ðŸ’» Technology & IT', 'ðŸ—ï¸ Engineering', 'ðŸŽ“ Education & Teaching',
+  'ðŸ¥ Health & Medicine', 'âš–ï¸ Law & Justice', '👍¼ Business & Finance',
+  '👍» Technology & IT', 'ðŸ—ï¸ Engineering', 'ðŸŽ“ Education & Teaching',
   'ðŸŽ¨ Arts & Design', 'ðŸŒ± Agriculture & Environment', 'âœˆï¸ Aviation & Tourism',
   'ðŸ”¬ Science & Research', 'ðŸ›ï¸ Government & Public Service', 'ðŸ“º Media & Communication',
 ]

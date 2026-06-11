@@ -124,7 +124,7 @@ export default function DocumentsPage() {
             'File must be PDF, JPG or PNG â€” max 5MB',
           ].map((item, i) => (
             <li key={i} className="text-xs text-red-700 flex items-start gap-2">
-              <span className="text-red-600 mt-0.5">â€¢</span>
+              <span className="text-red-600 mt-0.5">•</span>
               {item}
             </li>
           ))}
@@ -205,7 +205,7 @@ export default function DocumentsPage() {
           disabled={loading}
           className="w-2/3 bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 rounded-2xl transition-all flex items-center justify-center gap-2 disabled:opacity-60"
         >
-          {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : 'Next â€” Course Interests â†’'}
+          {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : 'Next â€” Course Interests →'}
         </button>
       </div>
     </div>

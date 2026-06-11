@@ -12,6 +12,22 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  /* Brand palette — derived from UniPath logo */
+  --color-blue-900: #1a1a2e;
+  --color-blue-800: #252545;
+  --color-blue-700: #2d2d60;
+  --color-blue-300: #9898cc;
+  --color-blue-200: #bbbbdd;
+  --color-red-500: #e94560;
+  --color-red-400: #f0647a;
+  --color-red-600: #c73550;
+  --color-red-700: #a02540;
+  --color-red-300: #f59aaa;
+  --color-red-100: #fce8ec;
+  --color-red-50:  #fff5f7;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

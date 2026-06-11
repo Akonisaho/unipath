@@ -176,7 +176,7 @@ function ResultsInner() {
           </div>
           <div className="text-left">
             <p className="text-sm font-bold">Not sure which course to choose?</p>
-            <p className="text-xs text-blue-300">Chat with your AI Career Guide â†’</p>
+            <p className="text-xs text-blue-300">Chat with your AI Career Guide →</p>
           </div>
         </button>
 
@@ -195,7 +195,7 @@ function ResultsInner() {
         {/* Filter Tabs */}
         <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
           {[
-            { key: 'qualify', label: `âœ… Qualify (${qualifyCount})` },
+            { key: 'qualify', label: `✅ Qualify (${qualifyCount})` },
             { key: 'close', label: `âš¡ Almost (${closeCount})` },
             { key: 'all', label: `ðŸ“š All (${courses.length})` },
           ].map(tab => (
@@ -229,7 +229,7 @@ function ResultsInner() {
         {/* Wishlist hint */}
         {wishlist.length === 0 && (
           <div className="bg-blue-50 border border-blue-200 rounded-2xl p-3 mb-4 text-center">
-            <p className="text-xs text-blue-700">ðŸ’¡ Tap the <span className="font-bold">heart â¤ï¸</span> on any course to add it to your wishlist for applications</p>
+            <p className="text-xs text-blue-700">👍¡ Tap the <span className="font-bold">heart â¤ï¸</span> on any course to add it to your wishlist for applications</p>
           </div>
         )}
 
@@ -276,7 +276,7 @@ function ResultsInner() {
                     </p>
                     {course.qualifies && (
                       <p className="text-xs text-green-600 font-medium mt-1">
-                        âœ… Qualifies at {course.qualifyingUnis.length} {course.qualifyingUnis.length === 1 ? 'university' : 'universities'}
+                        ✅ Qualifies at {course.qualifyingUnis.length} {course.qualifyingUnis.length === 1 ? 'university' : 'universities'}
                       </p>
                     )}
                     {course.close && !course.qualifies && (
@@ -328,7 +328,7 @@ function ResultsInner() {
                             <div className="flex items-center gap-2">
                               <span className="text-gray-400">Min: {req.required}%</span>
                               <span className={`font-semibold ${req.met ? 'text-green-600' : 'text-red-500'}`}>
-                                {req.met ? 'âœ…' : 'âŒ'} You: {req.got > 0 ? `${req.got}%` : 'Not taken'}
+                                {req.met ? '✅' : 'âŒ'} You: {req.got > 0 ? `${req.got}%` : 'Not taken'}
                               </span>
                             </div>
                           </div>

@@ -352,7 +352,7 @@ export default function GuardianDetailsPage() {
 
           {motherStatus === 'unknown' && (
             <div className="bg-gray-50 rounded-xl p-3">
-              <p className="text-xs text-gray-500">âœ… Noted â€” mother's information is unknown. Your guardian details below will be used instead.</p>
+              <p className="text-xs text-gray-500">✅ Noted â€” mother's information is unknown. Your guardian details below will be used instead.</p>
             </div>
           )}
         </div>
@@ -404,7 +404,7 @@ export default function GuardianDetailsPage() {
 
           {fatherStatus === 'unknown' && (
             <div className="bg-gray-50 rounded-xl p-3">
-              <p className="text-xs text-gray-500">âœ… Noted â€” father's information is unknown. Your guardian details below will be used instead.</p>
+              <p className="text-xs text-gray-500">✅ Noted â€” father's information is unknown. Your guardian details below will be used instead.</p>
             </div>
           )}
         </div>
@@ -474,7 +474,7 @@ export default function GuardianDetailsPage() {
             â† Back
           </button>
           <button type="submit" disabled={loading} className="w-2/3 bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 rounded-2xl transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-60">
-            {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : 'Next â€” Matric Results â†’'}
+            {loading ? <><Loader2 size={20} className="animate-spin" /> Saving...</> : 'Next â€” Matric Results →'}
           </button>
         </div>
       </form>

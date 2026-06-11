@@ -57,7 +57,7 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; icon: any }>
   draft: { label: 'Draft', color: 'bg-gray-100 text-gray-600', icon: FileText },
   submitted: { label: 'Submitted', color: 'bg-blue-100 text-blue-700', icon: Clock },
   pending: { label: 'Under Review', color: 'bg-red-100 text-red-700', icon: Clock },
-  accepted: { label: 'Accepted âœ…', color: 'bg-green-100 text-green-700', icon: CheckCircle },
+  accepted: { label: 'Accepted ✅', color: 'bg-green-100 text-green-700', icon: CheckCircle },
   rejected: { label: 'Unsuccessful', color: 'bg-red-100 text-red-600', icon: XCircle },
 }
 

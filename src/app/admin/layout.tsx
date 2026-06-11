@@ -52,7 +52,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar */}
       <div className="w-64 bg-blue-900 text-white flex flex-col">
         <div className="p-6 border-b border-blue-800">
-          <Logo size="sm" stacked={false} />
+          <Logo size="sm" />
           <p className="text-blue-300 text-xs mt-1">Admin Dashboard</p>
         </div>
 

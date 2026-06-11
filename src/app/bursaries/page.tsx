@@ -159,7 +159,7 @@ const BURSARIES = [
     faculty: 'All faculties',
     deadline: 'October',
     provinces: 'All provinces',
-    requirements: 'Missing middle students. Income R350,000â€“R600,000/year. Gap between NSFAS and self-funded.',
+    requirements: 'Missing middle students. Income R350,000—R600,000/year. Gap between NSFAS and self-funded.',
     url: 'https://www.isfap.org.za',
     nsfas: false,
     popular: true,
@@ -242,7 +242,7 @@ export default function BursariesPage() {
       <div className="max-w-2xl mx-auto px-4 py-6 space-y-4">
         {/* Tip */}
         <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
-          <p className="text-sm font-semibold text-red-800 mb-0.5">ðŸ’¡ Apply to as many as you qualify for</p>
+          <p className="text-sm font-semibold text-red-800 mb-0.5">👍¡ Apply to as many as you qualify for</p>
           <p className="text-xs text-red-700">Most bursaries are free to apply. Apply to NSFAS first, then stack bursaries on top.</p>
         </div>
 
@@ -343,7 +343,7 @@ export default function BursariesPage() {
         </div>
 
         <Link href="/nsfas" className="block text-center text-sm text-blue-600 hover:text-blue-800 py-2">
-          Read the full NSFAS guide â†’
+          Read the full NSFAS guide →
         </Link>
       </div>
 

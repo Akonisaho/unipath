@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
-import { BookOpen, Briefcase, FileText, Sparkles, LogOut, User, GraduationCap } from 'lucide-react'
+import { BookOpen, Briefcase, FileText, Sparkles, LogOut, User, GraduationCap, Calendar, AlertTriangle } from 'lucide-react'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
 
@@ -12,28 +12,47 @@ export default function DashboardPage() {
   const [profile, setProfile] = useState<any>(null)
   const [aps, setAps] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
+  const [deadlines, setDeadlines] = useState<Array<{ uni: string; course: string; deadline: string; days: number }>>([])
+
+  function daysUntil(d: string) {
+    const date = new Date(d)
+    if (isNaN(date.getTime())) return null
+    return Math.ceil((date.getTime() - Date.now()) / 86400000)
+  }
 
   useEffect(() => {
     const fetchProfile = async () => {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) { router.push('/login'); return }
 
-      const { data: prof } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', user.id)
-        .single()
-
-      const { data: apsData } = await supabase
-        .from('aps_scores')
-        .select('total_aps')
-        .eq('user_id', user.id)
-        .order('created_at', { ascending: false })
-        .limit(1)
-        .single()
+      const [{ data: prof }, { data: apsData }, { data: interests }] = await Promise.all([
+        supabase.from('profiles').select('*').eq('id', user.id).single(),
+        supabase.from('aps_scores').select('total_aps').eq('user_id', user.id)
+          .order('created_at', { ascending: false }).limit(1).single(),
+        supabase.from('course_interests')
+          .select('courses(name, course_universities(university_name, application_deadline))')
+          .eq('user_id', user.id),
+      ])
 
       setProfile(prof)
       if (apsData) setAps(apsData.total_aps)
+
+      if (interests) {
+        const upcoming: Array<{ uni: string; course: string; deadline: string; days: number }> = []
+        for (const i of interests as any[]) {
+          const c = i.courses
+          if (!c) continue
+          for (const u of (c.course_universities || [])) {
+            const days = daysUntil(u.application_deadline)
+            if (days !== null && days >= 0 && days <= 90) {
+              upcoming.push({ uni: u.university_name, course: c.name, deadline: u.application_deadline, days })
+            }
+          }
+        }
+        upcoming.sort((a, b) => a.days - b.days)
+        setDeadlines(upcoming.slice(0, 4))
+      }
+
       setLoading(false)
     }
     fetchProfile()
@@ -151,6 +170,40 @@ export default function DashboardPage() {
                 className="bg-red-500 h-2 rounded-full transition-all"
                 style={{ width: `${(aps / 42) * 100}%` }}
               />
+            </div>
+          </div>
+        )}
+
+        {/* Upcoming deadlines */}
+        {deadlines.length > 0 && (
+          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-6">
+            <div className="flex items-center gap-2 px-4 pt-4 pb-2">
+              <Calendar size={16} className="text-[#e94560]" />
+              <p className="text-sm font-bold text-gray-900">Upcoming Application Deadlines</p>
+            </div>
+            <div className="divide-y divide-gray-50">
+              {deadlines.map((d, i) => (
+                <div key={i} className="px-4 py-2.5 flex items-center justify-between">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-gray-800 truncate">{d.uni}</p>
+                    <p className="text-xs text-gray-400 truncate">{d.course}</p>
+                  </div>
+                  <div className="text-right ml-3 shrink-0">
+                    {d.days <= 14
+                      ? <span className="text-xs font-bold text-red-600 flex items-center gap-1"><AlertTriangle size={11} />{d.days}d left</span>
+                      : d.days <= 45
+                        ? <span className="text-xs font-semibold text-orange-500">{d.days}d left</span>
+                        : <span className="text-xs text-green-600">{d.days}d left</span>
+                    }
+                    <p className="text-[10px] text-gray-400 mt-0.5">{d.deadline}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="px-4 pb-3 pt-1">
+              <Link href="/applications" className="text-xs text-[#e94560] font-medium hover:underline">
+                View all applications →
+              </Link>
             </div>
           </div>
         )}

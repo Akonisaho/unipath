@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
-import { ArrowLeft, FileText, CheckCircle, Clock, XCircle, ChevronDown, ChevronUp, ExternalLink, Upload, Sparkles, BookOpen, Download } from 'lucide-react'
+import { ArrowLeft, FileText, CheckCircle, Clock, XCircle, ChevronDown, ChevronUp, ExternalLink, Sparkles, BookOpen, Download, Copy, Check, AlertTriangle } from 'lucide-react'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
@@ -61,6 +61,43 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; icon: any }>
   rejected: { label: 'Unsuccessful', color: 'bg-red-100 text-red-600', icon: XCircle },
 }
 
+function daysUntil(deadline: string | null | undefined): number | null {
+  if (!deadline) return null
+  const d = new Date(deadline)
+  if (isNaN(d.getTime())) return null
+  return Math.ceil((d.getTime() - Date.now()) / 86400000)
+}
+
+function DeadlineBadge({ deadline }: { deadline?: string | null }) {
+  const days = daysUntil(deadline)
+  if (!deadline) return null
+  if (days === null) return <span className="text-xs text-gray-400">{deadline}</span>
+  if (days < 0) return <span className="text-xs text-gray-400 line-through">{deadline}</span>
+  if (days <= 14) return (
+    <span className="text-xs font-bold text-red-600 flex items-center gap-1">
+      <AlertTriangle size={11} /> {days}d left
+    </span>
+  )
+  if (days <= 45) return (
+    <span className="text-xs font-semibold text-orange-500">{days}d left</span>
+  )
+  return <span className="text-xs text-green-600">{days}d left</span>
+}
+
+function CopyButton({ value }: { value: string }) {
+  const [copied, setCopied] = useState(false)
+  const copy = () => {
+    navigator.clipboard.writeText(value)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
+  }
+  return (
+    <button onClick={copy} className="ml-1 text-gray-300 hover:text-blue-500 transition-colors">
+      {copied ? <Check size={12} className="text-green-500" /> : <Copy size={12} />}
+    </button>
+  )
+}
+
 function getFee(uniName: string): number {
   for (const [key, fee] of Object.entries(UNI_FEES)) {
     if (uniName.toLowerCase().includes(key.toLowerCase()) || key.toLowerCase().includes(uniName.toLowerCase())) {
@@ -87,6 +124,8 @@ export default function ApplicationsPage() {
   const [expanded, setExpanded] = useState<string | null>(null)
   const [userId, setUserId] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState<string | null>(null)
+  const [profile, setProfile] = useState<any>(null)
+  const [aps, setAps] = useState<number | null>(null)
 
   useEffect(() => {
     const load = async () => {
@@ -94,15 +133,15 @@ export default function ApplicationsPage() {
       if (!user) { router.push('/login'); return }
       setUserId(user.id)
 
-      const { data: interests } = await supabase
-        .from('course_interests')
-        .select('course_id, courses(id, name, faculty, min_aps, duration, course_universities(university_name, min_aps, application_deadline))')
-        .eq('user_id', user.id)
-
-      const { data: apps } = await supabase
-        .from('applications')
-        .select('*')
-        .eq('user_id', user.id)
+      const [{ data: interests }, { data: apps }, { data: prof }, { data: apsData }] = await Promise.all([
+        supabase.from('course_interests')
+          .select('course_id, courses(id, name, faculty, min_aps, duration, course_universities(university_name, min_aps, application_deadline))')
+          .eq('user_id', user.id),
+        supabase.from('applications').select('*').eq('user_id', user.id),
+        supabase.from('profiles').select('*').eq('id', user.id).single(),
+        supabase.from('aps_scores').select('total_aps').eq('user_id', user.id)
+          .order('calculated_at', { ascending: false }).limit(1).single(),
+      ])
 
       if (interests) {
         const mapped = interests
@@ -119,6 +158,8 @@ export default function ApplicationsPage() {
         setApplications(appMap)
       }
 
+      setProfile(prof)
+      setAps(apsData?.total_aps ?? null)
       setLoading(false)
     }
     load()
@@ -209,13 +250,40 @@ export default function ApplicationsPage() {
           </div>
         )}
 
+        {/* Your Info quick-reference */}
+        {profile && (
+          <div className="bg-white rounded-2xl border border-gray-100 p-4">
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Your Details — copy when filling university forms</p>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
+              {[
+                { label: 'Full Name', value: profile.full_name },
+                { label: 'SA ID Number', value: profile.id_number },
+                { label: 'Phone', value: profile.phone },
+                { label: 'Email', value: profile.email },
+                { label: 'School', value: profile.school_name },
+                { label: 'APS Score', value: aps ? `${aps}/42` : null },
+                { label: 'Address', value: [profile.address, profile.city, profile.province].filter(Boolean).join(', ') },
+                { label: 'Province', value: profile.province },
+              ].filter(f => f.value).map(f => (
+                <div key={f.label} className="flex items-center justify-between border-b border-gray-50 py-1">
+                  <span className="text-gray-400">{f.label}</span>
+                  <span className="text-gray-800 font-medium flex items-center">
+                    {f.value}
+                    <CopyButton value={f.value!} />
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* How it works banner */}
         <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4">
           <p className="text-sm font-semibold text-blue-900 mb-1">How to apply</p>
           <ol className="text-xs text-blue-700 space-y-1 list-decimal list-inside">
-            <li>Select universities for each course below</li>
-            <li>Click the university link to go to their portal</li>
-            <li>Your profile info is saved — use it to fill in their form</li>
+            <li>Generate your PDF document below</li>
+            <li>Click &quot;Apply&quot; to go to the university portal</li>
+            <li>Use your details above to fill in their form</li>
             <li>Mark as submitted once done</li>
           </ol>
         </div>
@@ -231,7 +299,14 @@ export default function ApplicationsPage() {
           </div>
         ) : (
           wishlist.map((course: any) => {
-            const unis: any[] = course.course_universities || []
+            // Sort universities: open (by nearest deadline first), then closed
+            const unis: any[] = [...(course.course_universities || [])].sort((a, b) => {
+              const da = daysUntil(a.application_deadline) ?? 9999
+              const db = daysUntil(b.application_deadline) ?? 9999
+              if (da < 0 && db >= 0) return 1
+              if (db < 0 && da >= 0) return -1
+              return da - db
+            })
             const isOpen = expanded === course.id
 
             const courseApps = Object.entries(applications)
@@ -284,9 +359,14 @@ export default function ApplicationsPage() {
                                 <p className="text-sm font-semibold text-gray-900 truncate">{uni.university_name}</p>
                                 <div className="flex items-center gap-3 mt-1 text-xs text-gray-400 flex-wrap">
                                   <span>APS {uni.min_aps}+</span>
-                                  {uni.application_deadline && <span>Deadline: {uni.application_deadline}</span>}
+                                  {uni.application_deadline && (
+                                    <span className="flex items-center gap-1">
+                                      <span className="text-gray-300">·</span>
+                                      <DeadlineBadge deadline={uni.application_deadline} />
+                                    </span>
+                                  )}
                                   <span className={fee === 0 ? 'text-green-600 font-medium' : ''}>
-                                    {fee === 0 ? 'Free application' : `R${fee} fee`}
+                                    {fee === 0 ? 'Free' : `R${fee} fee`}
                                   </span>
                                 </div>
                                 {app && (

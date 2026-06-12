@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
-import { BookOpen, Building2, GraduationCap, Upload, Users, LayoutDashboard, LogOut } from 'lucide-react'
+import { BookOpen, GraduationCap, Users, LayoutDashboard, LogOut } from 'lucide-react'
 import Logo from '@/components/Logo'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -41,9 +41,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const navItems = [
     { href: '/admin', label: 'Overview', icon: LayoutDashboard },
-    { href: '/admin/courses', label: 'Courses', icon: BookOpen },
+    { href: '/admin/courses', label: 'Manage Courses', icon: BookOpen },
     { href: '/admin/tvet', label: 'TVET Programmes', icon: GraduationCap },
-    { href: '/admin/prospectus', label: 'Upload Prospectus', icon: Upload },
     { href: '/admin/users', label: 'Users', icon: Users },
   ]
 

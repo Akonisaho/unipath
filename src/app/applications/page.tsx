@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
-import { ArrowLeft, FileText, CheckCircle, Clock, XCircle, ChevronDown, ChevronUp, ExternalLink, Upload, Sparkles, BookOpen } from 'lucide-react'
+import { ArrowLeft, FileText, CheckCircle, Clock, XCircle, ChevronDown, ChevronUp, ExternalLink, Upload, Sparkles, BookOpen, Download } from 'lucide-react'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
@@ -297,12 +297,19 @@ export default function ApplicationsPage() {
                               </div>
 
                               <div className="flex flex-col gap-2 shrink-0">
+                                <Link
+                                  href={`/apply/${encodeURIComponent(uni.university_name)}?course=${encodeURIComponent(course.name)}`}
+                                  target="_blank"
+                                  className="flex items-center gap-1 text-xs bg-[#e94560] text-white px-3 py-1.5 rounded-xl hover:bg-[#c73550] font-medium"
+                                >
+                                  <Download size={12} /> PDF
+                                </Link>
                                 {url && (
                                   <a
                                     href={url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-1 text-xs bg-blue-900 text-white px-3 py-1.5 rounded-xl hover:bg-blue-800 font-medium"
+                                    className="flex items-center gap-1 text-xs bg-[#1a1a2e] text-white px-3 py-1.5 rounded-xl hover:bg-[#252545] font-medium"
                                   >
                                     Apply <ExternalLink size={12} />
                                   </a>

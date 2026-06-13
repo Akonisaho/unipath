@@ -124,14 +124,14 @@ export default function AgentPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#fef9f0] flex items-center justify-center">
         <Loader2 size={24} className="animate-spin text-blue-600" />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-[#fef9f0] flex flex-col">
       {/* Header */}
       <div className="bg-blue-900 text-white px-4 py-4 flex items-center gap-3">
         <button onClick={() => router.push('/dashboard')} className="text-blue-300 hover:text-white">

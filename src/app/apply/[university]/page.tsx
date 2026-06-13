@@ -87,7 +87,7 @@ function PrintDocument() {
   const fatherAlive = profile?.father_status === 'alive'
 
   return (
-    <div className="min-h-screen bg-gray-100 print:bg-white">
+    <div className="min-h-screen bg-[#fef9f0] print:bg-white">
 
       {/* Print toolbar — hidden when printing */}
       <div className="no-print fixed top-0 left-0 right-0 bg-[#1a1a2e] text-white px-6 py-3 flex items-center justify-between z-50 shadow-lg">

@@ -103,7 +103,7 @@ export default function ProfilePage() {
   }
 
   if (loading) return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+    <div className="min-h-screen bg-[#fef9f0] flex items-center justify-center">
       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-900" />
     </div>
   )
@@ -116,7 +116,7 @@ export default function ProfilePage() {
     `w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500`
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#fef9f0]">
       <div className="bg-blue-900 text-white px-4 py-4">
         <div className="max-w-2xl mx-auto flex items-center gap-3">
           <button onClick={() => router.push('/dashboard')} className="text-blue-300 hover:text-white">

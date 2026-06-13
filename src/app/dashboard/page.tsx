@@ -65,7 +65,7 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#fef9f0] flex items-center justify-center">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-900" />
       </div>
     )
@@ -122,7 +122,7 @@ export default function DashboardPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#fef9f0]">
       {/* Header */}
       <div className="bg-blue-900 text-white px-4 py-4">
         <div className="max-w-2xl mx-auto flex items-center justify-between">

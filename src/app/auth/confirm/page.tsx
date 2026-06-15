@@ -37,6 +37,10 @@ function ConfirmInner() {
             type: type as any
           })
           if (!error) {
+            if (type === 'recovery') {
+              router.push('/reset-password')
+              return
+            }
             const { data: { user } } = await supabase.auth.getUser()
             if (user) { await redirectUser(user.id); return }
           }

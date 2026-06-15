@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { LogoDark } from '@/components/Logo'
 import { createClient } from '@supabase/supabase-js'
 
-export const revalidate = 3600
+export const revalidate = 0
 
 async function getStats() {
   try {

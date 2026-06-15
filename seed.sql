@@ -1,7 +1,9 @@
 -- UniPath Course Seed SQL
--- Paste this entire block into Supabase SQL Editor and click Run
--- Safe to re-run: skips courses that already exist
+-- 201 courses split into 6 blocks of ~40
+-- Paste the ENTIRE file into Supabase SQL Editor and click Run
+-- Safe to re-run: each block skips courses that already exist
 
+-- ════════ BLOCK 1 of 6 (courses 1–40) ════════
 DO $$
 DECLARE
   cid UUID;
@@ -880,6 +882,15 @@ BEGIN
   ELSE
     RAISE NOTICE 'Skipping (exists): BA Journalism and Media Studies';
   END IF;
+
+  RAISE NOTICE 'Block complete (40 courses processed)';
+END $$;
+
+-- ════════ BLOCK 2 of 6 (courses 41–80) ════════
+DO $$
+DECLARE
+  cid UUID;
+BEGIN
 
   -- BA Political Science
   IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA Political Science') THEN
@@ -1765,6 +1776,15 @@ BEGIN
     RAISE NOTICE 'Skipping (exists): BSc Microbiology';
   END IF;
 
+  RAISE NOTICE 'Block complete (40 courses processed)';
+END $$;
+
+-- ════════ BLOCK 3 of 6 (courses 81–120) ════════
+DO $$
+DECLARE
+  cid UUID;
+BEGIN
+
   -- BSc Geology & Earth Science
   IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Geology & Earth Science') THEN
     INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
@@ -2584,6 +2604,15 @@ BEGIN
     RAISE NOTICE 'Skipping (exists): Diploma in Supply Chain Management';
   END IF;
 
+  RAISE NOTICE 'Block complete (40 courses processed)';
+END $$;
+
+-- ════════ BLOCK 4 of 6 (courses 121–160) ════════
+DO $$
+DECLARE
+  cid UUID;
+BEGIN
+
   -- Diploma in Events Management
   IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Events Management') THEN
     INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
@@ -3311,6 +3340,15 @@ BEGIN
     RAISE NOTICE 'Skipping (exists): BSc Podiatry';
   END IF;
 
+  RAISE NOTICE 'Block complete (40 courses processed)';
+END $$;
+
+-- ════════ BLOCK 5 of 6 (courses 161–200) ════════
+DO $$
+DECLARE
+  cid UUID;
+BEGIN
+
   -- Bachelor of Clinical Associate
   IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Bachelor of Clinical Associate') THEN
     INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
@@ -4036,6 +4074,15 @@ BEGIN
     RAISE NOTICE 'Skipping (exists): BSc Environmental Management';
   END IF;
 
+  RAISE NOTICE 'Block complete (40 courses processed)';
+END $$;
+
+-- ════════ BLOCK 6 of 6 (courses 201–201) ════════
+DO $$
+DECLARE
+  cid UUID;
+BEGIN
+
   -- BSc Game Development
   IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Game Development') THEN
     INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
@@ -4053,10 +4100,10 @@ BEGIN
     RAISE NOTICE 'Skipping (exists): BSc Game Development';
   END IF;
 
-  RAISE NOTICE 'Seed complete!';
+  RAISE NOTICE 'Block complete (1 courses processed)';
 END $$;
 
--- Verify
+-- Verify totals
 SELECT COUNT(*) AS total_courses FROM courses;
 SELECT COUNT(*) AS total_universities FROM course_universities;
 SELECT COUNT(*) AS total_subject_reqs FROM course_subject_requirements;

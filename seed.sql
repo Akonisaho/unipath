@@ -1,9 +1,9 @@
 -- UniPath Course Seed SQL
--- 201 courses split into 6 blocks of ~40
+-- 259 courses split into 7 blocks of ~40
 -- Paste the ENTIRE file into Supabase SQL Editor and click Run
 -- Safe to re-run: each block skips courses that already exist
 
--- ════════ BLOCK 1 of 6 (courses 1–40) ════════
+-- ════════ BLOCK 1 of 7 (courses 1–40) ════════
 DO $$
 DECLARE
   cid UUID;
@@ -886,7 +886,7 @@ BEGIN
   RAISE NOTICE 'Block complete (40 courses processed)';
 END $$;
 
--- ════════ BLOCK 2 of 6 (courses 41–80) ════════
+-- ════════ BLOCK 2 of 7 (courses 41–80) ════════
 DO $$
 DECLARE
   cid UUID;
@@ -1779,7 +1779,7 @@ BEGIN
   RAISE NOTICE 'Block complete (40 courses processed)';
 END $$;
 
--- ════════ BLOCK 3 of 6 (courses 81–120) ════════
+-- ════════ BLOCK 3 of 7 (courses 81–120) ════════
 DO $$
 DECLARE
   cid UUID;
@@ -2607,7 +2607,7 @@ BEGIN
   RAISE NOTICE 'Block complete (40 courses processed)';
 END $$;
 
--- ════════ BLOCK 4 of 6 (courses 121–160) ════════
+-- ════════ BLOCK 4 of 7 (courses 121–160) ════════
 DO $$
 DECLARE
   cid UUID;
@@ -3343,7 +3343,7 @@ BEGIN
   RAISE NOTICE 'Block complete (40 courses processed)';
 END $$;
 
--- ════════ BLOCK 5 of 6 (courses 161–200) ════════
+-- ════════ BLOCK 5 of 7 (courses 161–200) ════════
 DO $$
 DECLARE
   cid UUID;
@@ -4077,7 +4077,7 @@ BEGIN
   RAISE NOTICE 'Block complete (40 courses processed)';
 END $$;
 
--- ════════ BLOCK 6 of 6 (courses 201–201) ════════
+-- ════════ BLOCK 6 of 7 (courses 201–240) ════════
 DO $$
 DECLARE
   cid UUID;
@@ -4100,7 +4100,1036 @@ BEGIN
     RAISE NOTICE 'Skipping (exists): BSc Game Development';
   END IF;
 
-  RAISE NOTICE 'Block complete (1 courses processed)';
+  -- BEd Mathematics Education
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BEd Mathematics Education') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BEd Mathematics Education', 'Education', 'degree', 7, 24, '4 years', 'Train to teach Mathematics in secondary schools. Critical shortage subject in SA — bursaries widely available.', ARRAY['High School Maths Teacher', 'Curriculum Developer', 'Educational Tutor', 'Assessment Specialist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 65),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Pretoria (UP)', 26, '30 June 2026'),
+      (cid, 'Stellenbosch University', 26, '31 July 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 26, '30 September 2026'),
+      (cid, 'North-West University (NWU)', 24, '30 September 2026'),
+      (cid, 'University of the Free State (UFS)', 24, '30 September 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 24, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 22, '30 November 2026'),
+      (cid, 'Walter Sisulu University (WSU)', 22, '30 September 2026'),
+      (cid, 'University of Fort Hare (UFH)', 22, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BEd Mathematics Education';
+  END IF;
+
+  -- BEd Physical Sciences Education
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BEd Physical Sciences Education') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BEd Physical Sciences Education', 'Education', 'degree', 7, 24, '4 years', 'Train to teach Physical Sciences (Physics & Chemistry) in secondary schools. Bursaries available from DHET.', ARRAY['Physical Sciences Teacher', 'Science Curriculum Developer', 'Laboratory Technician Trainer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Physical Sciences', 65),
+      (cid, 'Mathematics', 60),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Pretoria (UP)', 26, '30 June 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 26, '30 September 2026'),
+      (cid, 'North-West University (NWU)', 24, '30 September 2026'),
+      (cid, 'University of the Free State (UFS)', 24, '30 September 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 24, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 22, '30 November 2026'),
+      (cid, 'University of Limpopo (UL)', 22, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BEd Physical Sciences Education';
+  END IF;
+
+  -- BEd Life Sciences Education
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BEd Life Sciences Education') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BEd Life Sciences Education', 'Education', 'degree', 7, 24, '4 years', 'Train to teach Life Sciences (Biology) in senior and FET phase. High demand in rural and township schools.', ARRAY['Life Sciences Teacher', 'Biology Curriculum Developer', 'Science Education Specialist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Life Sciences', 60),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Pretoria (UP)', 24, '30 June 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 24, '30 September 2026'),
+      (cid, 'University of the Free State (UFS)', 22, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 22, '30 November 2026'),
+      (cid, 'University of Zululand (UNIZULU)', 20, '30 September 2026'),
+      (cid, 'University of Limpopo (UL)', 20, '30 September 2026'),
+      (cid, 'University of Venda (UNIVEN)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BEd Life Sciences Education';
+  END IF;
+
+  -- BEd English Language Teaching
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BEd English Language Teaching') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BEd English Language Teaching', 'Education', 'degree', 7, 22, '4 years', 'Specialise in teaching English as first or additional language. One of the most in-demand teaching specialisations in SA.', ARRAY['English Teacher', 'Language Specialist', 'ESL Teacher', 'Literacy Coordinator'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 70);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Pretoria (UP)', 24, '30 June 2026'),
+      (cid, 'Rhodes University', 24, '30 September 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 22, '30 September 2026'),
+      (cid, 'University of the Western Cape (UWC)', 22, '30 September 2026'),
+      (cid, 'Walter Sisulu University (WSU)', 20, '30 September 2026'),
+      (cid, 'University of Fort Hare (UFH)', 20, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 20, '30 November 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BEd English Language Teaching';
+  END IF;
+
+  -- BEd History & Social Sciences Education
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BEd History & Social Sciences Education') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BEd History & Social Sciences Education', 'Education', 'degree', 7, 22, '4 years', 'Train to teach History and Social Sciences at secondary level. Strong foundation in Humanities required.', ARRAY['History Teacher', 'Social Sciences Teacher', 'Curriculum Advisor', 'Museum Educator'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'History', 60),
+      (cid, 'English', 60);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of KwaZulu-Natal (UKZN)', 22, '30 September 2026'),
+      (cid, 'University of the Free State (UFS)', 22, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 20, '30 November 2026'),
+      (cid, 'University of Fort Hare (UFH)', 20, '30 September 2026'),
+      (cid, 'University of Zululand (UNIZULU)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BEd History & Social Sciences Education';
+  END IF;
+
+  -- BEd Technology Education
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BEd Technology Education') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BEd Technology Education', 'Education', 'degree', 7, 22, '4 years', 'Train to teach Technology, Design and Engineering Graphics in schools. Supports STEM education in SA.', ARRAY['Technology Teacher', 'Technical Drawing Teacher', 'CAD Trainer', 'STEM Education Specialist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 55),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 22, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 22, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 20, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 20, '30 November 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BEd Technology Education';
+  END IF;
+
+  -- BA Afrikaans & Nederlands
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA Afrikaans & Nederlands') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BA Afrikaans & Nederlands', 'Humanities', 'degree', 7, 20, '3 years', 'Study Afrikaans language and literature, with links to Dutch. Opens doors in media, education and publishing.', ARRAY['Afrikaans Teacher', 'Translator', 'Editor', 'Journalist', 'Publisher', 'Lexicographer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Afrikaans', 65),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Stellenbosch University', 24, '31 July 2026'),
+      (cid, 'North-West University (NWU)', 22, '30 September 2026'),
+      (cid, 'University of Pretoria (UP)', 22, '30 June 2026'),
+      (cid, 'University of the Free State (UFS)', 20, '30 September 2026'),
+      (cid, 'University of the Western Cape (UWC)', 20, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 20, '30 November 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BA Afrikaans & Nederlands';
+  END IF;
+
+  -- BA isiZulu Studies
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA isiZulu Studies') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BA isiZulu Studies', 'Humanities', 'degree', 7, 20, '3 years', 'Study isiZulu language, literature and culture. SA has 12 million isiZulu speakers — careers in media, government and education.', ARRAY['isiZulu Teacher', 'Translator', 'Broadcaster', 'Community Liaison Officer', 'Cultural Officer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'isiZulu', 60),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of KwaZulu-Natal (UKZN)', 22, '30 September 2026'),
+      (cid, 'University of Zululand (UNIZULU)', 20, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 20, '30 November 2026'),
+      (cid, 'Walter Sisulu University (WSU)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BA isiZulu Studies';
+  END IF;
+
+  -- BA isiXhosa Studies
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA isiXhosa Studies') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BA isiXhosa Studies', 'Humanities', 'degree', 7, 20, '3 years', 'Study isiXhosa language and literature. Valuable for government, NGOs and media in the Eastern Cape and Western Cape.', ARRAY['isiXhosa Teacher', 'Interpreter', 'Broadcaster', 'Government Language Practitioner', 'Community Liaison'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'isiXhosa', 60),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Fort Hare (UFH)', 20, '30 September 2026'),
+      (cid, 'Walter Sisulu University (WSU)', 20, '30 September 2026'),
+      (cid, 'University of the Western Cape (UWC)', 20, '30 September 2026'),
+      (cid, 'Rhodes University', 22, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 20, '30 November 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BA isiXhosa Studies';
+  END IF;
+
+  -- BA Sesotho Studies
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA Sesotho Studies') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BA Sesotho Studies', 'Humanities', 'degree', 7, 20, '3 years', 'Study Sesotho (Southern Sotho) language and literature. Official language of Lesotho and widely spoken in the Free State.', ARRAY['Sesotho Teacher', 'Interpreter', 'Community Development Officer', 'Government Language Practitioner'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Sesotho', 60),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of the Free State (UFS)', 20, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 20, '30 November 2026'),
+      (cid, 'North-West University (NWU)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BA Sesotho Studies';
+  END IF;
+
+  -- BA Setswana Studies
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA Setswana Studies') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BA Setswana Studies', 'Humanities', 'degree', 7, 20, '3 years', 'Study Setswana language and literature. Widely spoken in North West Province and Botswana.', ARRAY['Setswana Teacher', 'Translator', 'Broadcaster', 'Language Practitioner', 'Cultural Heritage Officer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Setswana', 60),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'North-West University (NWU)', 20, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 20, '30 November 2026'),
+      (cid, 'Sol Plaatje University (SPU)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BA Setswana Studies';
+  END IF;
+
+  -- BCom Actuarial Science
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BCom Actuarial Science') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BCom Actuarial Science', 'Commerce', 'degree', 7, 32, '3 years', 'Apply statistics and financial mathematics to insurance and risk. One of the highest-earning professions in SA.', ARRAY['Actuary', 'Risk Analyst', 'Insurance Specialist', 'Pension Fund Manager', 'Financial Modeller'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 80),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Cape Town (UCT)', 36, '31 July 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 34, '30 September 2026'),
+      (cid, 'University of Pretoria (UP)', 32, '30 June 2026'),
+      (cid, 'Stellenbosch University', 34, '31 July 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BCom Actuarial Science';
+  END IF;
+
+  -- BCom Financial Planning
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BCom Financial Planning') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BCom Financial Planning', 'Commerce', 'degree', 7, 24, '3 years', 'Study personal financial planning, investment advice and retirement planning. Leads to CFP certification.', ARRAY['Financial Planner', 'Wealth Manager', 'Investment Advisor', 'Retirement Planner', 'Estate Planner'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 55),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of the Free State (UFS)', 26, '30 September 2026'),
+      (cid, 'North-West University (NWU)', 24, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 24, '30 November 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 22, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BCom Financial Planning';
+  END IF;
+
+  -- BCom Logistics Management
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BCom Logistics Management') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BCom Logistics Management', 'Commerce', 'degree', 7, 24, '3 years', 'Plan and manage the movement of goods from supplier to customer. Critical role in SA manufacturing and trade.', ARRAY['Logistics Manager', 'Supply Chain Analyst', 'Distribution Manager', 'Import/Export Manager', 'Fleet Manager'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 55),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Johannesburg (UJ)', 26, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 24, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 24, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 22, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 22, '30 November 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BCom Logistics Management';
+  END IF;
+
+  -- Diploma in Graphic Design
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Graphic Design') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Graphic Design', 'Arts & Design', 'diploma', 6, 18, '3 years', 'Create visual content for brands, advertising and digital media. SA design industry is growing rapidly.', ARRAY['Graphic Designer', 'Brand Designer', 'Advertising Designer', 'Web Designer', 'Social Media Designer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 20, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 20, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 18, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Graphic Design';
+  END IF;
+
+  -- Diploma in Interior Design
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Interior Design') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Interior Design', 'Arts & Design', 'diploma', 6, 18, '3 years', 'Design functional and beautiful interior spaces for homes, offices and commercial properties.', ARRAY['Interior Designer', 'Décor Consultant', 'Space Planner', 'Furniture Buyer', 'Exhibition Designer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 20, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 20, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Interior Design';
+  END IF;
+
+  -- Diploma in Sound Engineering
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Sound Engineering') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Sound Engineering', 'Arts & Design', 'diploma', 6, 18, '3 years', 'Record, mix and master audio for music, film, radio and television. SA has a thriving music and broadcast industry.', ARRAY['Sound Engineer', 'Audio Engineer', 'Music Producer', 'Broadcast Technician', 'Post-Production Sound Editor'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 18, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 18, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Sound Engineering';
+  END IF;
+
+  -- Diploma in Journalism
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Journalism') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Journalism', 'Humanities', 'diploma', 6, 18, '3 years', 'Train in print, broadcast and digital journalism. SA media sector offers good employment opportunities.', ARRAY['Journalist', 'News Reporter', 'Copy Editor', 'Online Content Producer', 'Radio Presenter'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 60);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 20, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 20, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Journalism';
+  END IF;
+
+  -- BSc Medical Laboratory Science
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Medical Laboratory Science') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Medical Laboratory Science', 'Health Sciences', 'degree', 7, 26, '4 years', 'Perform diagnostic tests that help doctors detect and diagnose diseases. Works in hospitals and private labs.', ARRAY['Medical Laboratory Scientist', 'Clinical Pathologist Assistant', 'Blood Bank Technologist', 'Lab Manager'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Life Sciences', 60),
+      (cid, 'Physical Sciences', 55),
+      (cid, 'Mathematics', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of the Free State (UFS)', 28, '30 September 2026'),
+      (cid, 'University of the Western Cape (UWC)', 26, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 24, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 24, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 24, '30 September 2026'),
+      (cid, 'Mangosuthu University of Technology (MUT)', 22, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Medical Laboratory Science';
+  END IF;
+
+  -- BSc Human Movement Science
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Human Movement Science') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Human Movement Science', 'Health Sciences', 'degree', 7, 24, '3 years', 'Study the science of physical movement, exercise physiology and motor control. Gateway to teaching, coaching and health professions.', ARRAY['Biokineticist', 'Sports Coach', 'Exercise Physiologist', 'PE Teacher', 'Ergonomist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Life Sciences', 55),
+      (cid, 'Mathematics', 50),
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Stellenbosch University', 26, '31 July 2026'),
+      (cid, 'University of Pretoria (UP)', 26, '30 June 2026'),
+      (cid, 'North-West University (NWU)', 24, '30 September 2026'),
+      (cid, 'University of the Free State (UFS)', 24, '30 September 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 24, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Human Movement Science';
+  END IF;
+
+  -- BSc Audiology
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Audiology') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Audiology', 'Health Sciences', 'degree', 7, 26, '4 years', 'Diagnose and treat hearing loss and balance disorders. Growing field as SA population ages.', ARRAY['Audiologist', 'Hearing Aid Specialist', 'Balance Disorder Clinician', 'School Audiologist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Life Sciences', 60),
+      (cid, 'Mathematics', 55),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Pretoria (UP)', 28, '30 June 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 28, '30 September 2026'),
+      (cid, 'Stellenbosch University', 26, '31 July 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 26, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Audiology';
+  END IF;
+
+  -- BSc Consumer Science
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Consumer Science') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Consumer Science', 'Science', 'degree', 7, 24, '3 years', 'Study food, nutrition, textiles and household management from a consumer perspective. Broad career applications.', ARRAY['Consumer Scientist', 'Food Product Developer', 'Textile Quality Inspector', 'Home Economics Specialist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Life Sciences', 55),
+      (cid, 'Mathematics', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Pretoria (UP)', 26, '30 June 2026'),
+      (cid, 'North-West University (NWU)', 24, '30 September 2026'),
+      (cid, 'University of the Free State (UFS)', 24, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Consumer Science';
+  END IF;
+
+  -- Bachelor of Nursing (Extended)
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Bachelor of Nursing (Extended)') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Bachelor of Nursing (Extended)', 'Health Sciences', 'degree', 7, 18, '5 years', 'Extended nursing programme for students who need additional academic support. Same outcome as standard BNSc.', ARRAY['Registered Nurse', 'Midwife', 'Community Health Nurse', 'ICU Nurse'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 50),
+      (cid, 'Life Sciences', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Fort Hare (UFH)', 18, '30 September 2026'),
+      (cid, 'Walter Sisulu University (WSU)', 18, '30 September 2026'),
+      (cid, 'University of Zululand (UNIZULU)', 18, '30 September 2026'),
+      (cid, 'University of Venda (UNIVEN)', 18, '30 September 2026'),
+      (cid, 'University of Mpumalanga (UMP)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Bachelor of Nursing (Extended)';
+  END IF;
+
+  -- BSc Earth Sciences
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Earth Sciences') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Earth Sciences', 'Science', 'degree', 7, 26, '3 years', 'Study rocks, minerals, earthquakes and the structure of the Earth. Essential for mining, oil exploration and environmental work.', ARRAY['Geoscientist', 'Petroleum Geologist', 'Seismologist', 'Mining Geologist', 'Environmental Geologist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 60),
+      (cid, 'Physical Sciences', 65);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Cape Town (UCT)', 30, '31 July 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 28, '30 September 2026'),
+      (cid, 'Stellenbosch University', 28, '31 July 2026'),
+      (cid, 'University of Pretoria (UP)', 26, '30 June 2026'),
+      (cid, 'Rhodes University', 26, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Earth Sciences';
+  END IF;
+
+  -- BSc Geophysics
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Geophysics') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Geophysics', 'Science', 'degree', 7, 28, '3 years', 'Study the physical properties of the Earth using physics. Key role in oil and gas exploration and seismic hazard assessment.', ARRAY['Geophysicist', 'Seismic Data Interpreter', 'Exploration Geophysicist', 'Mining Geophysicist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 70),
+      (cid, 'Physical Sciences', 70);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of the Witwatersrand (Wits)', 30, '30 September 2026'),
+      (cid, 'University of Pretoria (UP)', 28, '30 June 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Geophysics';
+  END IF;
+
+  -- BSc Neuroscience
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Neuroscience') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Neuroscience', 'Science', 'degree', 7, 28, '3 years', 'Study the brain, nervous system and behaviour. Interdisciplinary field at the forefront of medical research.', ARRAY['Neuroscientist', 'Neurologist', 'Neuropsychologist', 'Brain Research Scientist', 'Clinical Neurophysiologist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Life Sciences', 65),
+      (cid, 'Mathematics', 60),
+      (cid, 'Physical Sciences', 60);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Cape Town (UCT)', 32, '31 July 2026'),
+      (cid, 'Stellenbosch University', 30, '31 July 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 30, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Neuroscience';
+  END IF;
+
+  -- BSc Medical Physics
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Medical Physics') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Medical Physics', 'Science', 'degree', 7, 28, '3 years', 'Apply physics in medical imaging, radiation therapy and nuclear medicine. Highly specialised and sought-after field.', ARRAY['Medical Physicist', 'Radiation Oncology Physicist', 'Nuclear Medicine Physicist', 'MRI Physicist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 70),
+      (cid, 'Physical Sciences', 70);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Cape Town (UCT)', 32, '31 July 2026'),
+      (cid, 'Stellenbosch University', 30, '31 July 2026'),
+      (cid, 'University of the Free State (UFS)', 28, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Medical Physics';
+  END IF;
+
+  -- BEng Structural Engineering
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BEng Structural Engineering') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BEng Structural Engineering', 'Engineering', 'degree', 8, 30, '4 years', 'Design buildings, bridges and infrastructure that are safe and efficient. High demand in SA infrastructure development.', ARRAY['Structural Engineer', 'Bridge Engineer', 'Construction Engineer', 'Infrastructure Consultant'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 70),
+      (cid, 'Physical Sciences', 70);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Cape Town (UCT)', 34, '31 July 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 32, '30 September 2026'),
+      (cid, 'Stellenbosch University', 32, '31 July 2026'),
+      (cid, 'University of Pretoria (UP)', 30, '30 June 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 30, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BEng Structural Engineering';
+  END IF;
+
+  -- BEng Electronic Engineering
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BEng Electronic Engineering') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BEng Electronic Engineering', 'Engineering', 'degree', 8, 30, '4 years', 'Design and develop electronic systems, circuits and devices for telecom, defence and consumer electronics.', ARRAY['Electronic Engineer', 'Circuit Design Engineer', 'Telecom Engineer', 'Systems Engineer', 'Embedded Systems Developer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 70),
+      (cid, 'Physical Sciences', 70);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Cape Town (UCT)', 34, '31 July 2026'),
+      (cid, 'Stellenbosch University', 32, '31 July 2026'),
+      (cid, 'University of Pretoria (UP)', 30, '30 June 2026'),
+      (cid, 'University of Johannesburg (UJ)', 28, '30 September 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 28, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BEng Electronic Engineering';
+  END IF;
+
+  -- Higher Certificate in Building & Construction
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Higher Certificate in Building & Construction') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Higher Certificate in Building & Construction', 'Built Environment', 'certificate', 5, 15, '1 year', 'Entry-level qualification for the construction industry. Leads into Diploma in Construction.', ARRAY['Construction Site Assistant', 'Building Materials Sales', 'Construction Learnership Candidate'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 40),
+      (cid, 'English', 40);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 15, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 15, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 15, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 15, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 15, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Higher Certificate in Building & Construction';
+  END IF;
+
+  -- BSc (Extended) Engineering
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc (Extended) Engineering') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc (Extended) Engineering', 'Engineering', 'degree', 8, 22, '5 years', 'Five-year extended engineering programme with a foundation year for students who narrowly missed standard entry requirements.', ARRAY['Civil Engineer', 'Mechanical Engineer', 'Electrical Engineer', 'Chemical Engineer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 50),
+      (cid, 'Physical Sciences', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Cape Town (UCT)', 24, '31 July 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 24, '30 September 2026'),
+      (cid, 'Stellenbosch University', 22, '31 July 2026'),
+      (cid, 'University of Pretoria (UP)', 22, '30 June 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 22, '30 September 2026'),
+      (cid, 'Nelson Mandela University (NMU)', 22, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc (Extended) Engineering';
+  END IF;
+
+  -- BCom (Extended)
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BCom (Extended)') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BCom (Extended)', 'Commerce', 'degree', 7, 18, '4 years', 'Extended four-year BCom with a first-year foundation. For students who need additional maths and English support before mainstream study.', ARRAY['Accountant', 'Financial Manager', 'Business Analyst', 'Entrepreneur'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 40),
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of the Western Cape (UWC)', 18, '30 September 2026'),
+      (cid, 'University of Fort Hare (UFH)', 18, '30 September 2026'),
+      (cid, 'Walter Sisulu University (WSU)', 18, '30 September 2026'),
+      (cid, 'University of Zululand (UNIZULU)', 18, '30 September 2026'),
+      (cid, 'University of Limpopo (UL)', 18, '30 September 2026'),
+      (cid, 'Sol Plaatje University (SPU)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BCom (Extended)';
+  END IF;
+
+  -- BA (Extended) Humanities
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA (Extended) Humanities') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BA (Extended) Humanities', 'Humanities', 'degree', 7, 18, '4 years', 'Extended humanities degree with foundation year for students who need extra language and academic literacy support.', ARRAY['Social Researcher', 'Community Worker', 'Teacher', 'NGO Officer', 'Government Officer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 40);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of the Western Cape (UWC)', 18, '30 September 2026'),
+      (cid, 'University of Fort Hare (UFH)', 18, '30 September 2026'),
+      (cid, 'Walter Sisulu University (WSU)', 18, '30 September 2026'),
+      (cid, 'University of Zululand (UNIZULU)', 18, '30 September 2026'),
+      (cid, 'University of Limpopo (UL)', 18, '30 September 2026'),
+      (cid, 'University of Venda (UNIVEN)', 18, '30 September 2026'),
+      (cid, 'University of Mpumalanga (UMP)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BA (Extended) Humanities';
+  END IF;
+
+  -- BSc (Extended) Science
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc (Extended) Science') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc (Extended) Science', 'Science', 'degree', 7, 20, '4 years', 'Extended science degree with foundation year covering maths, physics, chemistry and biology before mainstream science study.', ARRAY['Scientist', 'Researcher', 'Chemist', 'Biologist', 'Data Analyst'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 40),
+      (cid, 'Physical Sciences', 40);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of the Western Cape (UWC)', 20, '30 September 2026'),
+      (cid, 'University of Fort Hare (UFH)', 20, '30 September 2026'),
+      (cid, 'University of Zululand (UNIZULU)', 20, '30 September 2026'),
+      (cid, 'University of Limpopo (UL)', 20, '30 September 2026'),
+      (cid, 'University of Venda (UNIVEN)', 20, '30 September 2026'),
+      (cid, 'University of Mpumalanga (UMP)', 20, '30 September 2026'),
+      (cid, 'Walter Sisulu University (WSU)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc (Extended) Science';
+  END IF;
+
+  -- BSc Food Technology
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Food Technology') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Food Technology', 'Agriculture', 'degree', 7, 24, '3 years', 'Develop, test and improve food products and preservation methods. SA food industry employs thousands of graduates.', ARRAY['Food Technologist', 'Product Developer', 'Quality Control Manager', 'Food Safety Auditor', 'Process Engineer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Physical Sciences', 60),
+      (cid, 'Life Sciences', 60),
+      (cid, 'Mathematics', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Stellenbosch University', 28, '31 July 2026'),
+      (cid, 'University of Pretoria (UP)', 26, '30 June 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 24, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 22, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 22, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Food Technology';
+  END IF;
+
+  -- Diploma in Food Preparation & Culinary Arts
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Food Preparation & Culinary Arts') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Food Preparation & Culinary Arts', 'Commerce', 'diploma', 6, 18, '3 years', 'Professional culinary training covering cooking techniques, kitchen management and food service. SA tourism and hospitality drives demand.', ARRAY['Chef', 'Sous Chef', 'Pastry Chef', 'Restaurant Manager', 'Catering Manager', 'Food Stylist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 45);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 18, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 18, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 18, '30 September 2026'),
+      (cid, 'Mangosuthu University of Technology (MUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Food Preparation & Culinary Arts';
+  END IF;
+
+  -- BSc Multimedia Computing
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Multimedia Computing') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Multimedia Computing', 'Information Technology', 'degree', 7, 24, '3 years', 'Combine computing with audio, video and interactive media. Ideal for digital content creation and interactive design.', ARRAY['Multimedia Developer', 'Web Application Developer', 'UX Developer', 'Digital Content Producer', 'App Developer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 55),
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Johannesburg (UJ)', 26, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 24, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 24, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 22, '30 September 2026'),
+      (cid, 'Nelson Mandela University (NMU)', 22, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Multimedia Computing';
+  END IF;
+
+  -- Diploma in Web Development
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Web Development') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Web Development', 'Information Technology', 'diploma', 6, 18, '3 years', 'Build websites and web applications using modern frameworks. One of the most in-demand skills in SA job market.', ARRAY['Web Developer', 'Front-End Developer', 'Back-End Developer', 'Full-Stack Developer', 'WordPress Developer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 45),
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Tshwane University of Technology (TUT)', 18, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 18, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 18, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Web Development';
+  END IF;
+
+  -- Diploma in Mobile App Development
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Mobile App Development') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Mobile App Development', 'Information Technology', 'diploma', 6, 18, '3 years', 'Build Android and iOS mobile applications. Mobile development is the fastest-growing IT specialisation in Africa.', ARRAY['Mobile App Developer', 'Android Developer', 'iOS Developer', 'React Native Developer', 'Flutter Developer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 50),
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 20, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 20, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Mobile App Development';
+  END IF;
+
+  RAISE NOTICE 'Block complete (40 courses processed)';
+END $$;
+
+-- ════════ BLOCK 7 of 7 (courses 241–259) ════════
+DO $$
+DECLARE
+  cid UUID;
+BEGIN
+
+  -- BSc Information Systems
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Information Systems') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Information Systems', 'Information Technology', 'degree', 7, 24, '3 years', 'Bridge business needs with IT solutions. Study systems analysis, database management and enterprise software.', ARRAY['Systems Analyst', 'Business Analyst', 'Database Administrator', 'IT Manager', 'ERP Specialist'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 55),
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Cape Town (UCT)', 30, '31 July 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 28, '30 September 2026'),
+      (cid, 'Rhodes University', 26, '30 September 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 24, '30 September 2026'),
+      (cid, 'Nelson Mandela University (NMU)', 24, '30 September 2026'),
+      (cid, 'University of the Western Cape (UWC)', 24, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Information Systems';
+  END IF;
+
+  -- BProc (Bachelor of Procuration)
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BProc (Bachelor of Procuration)') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BProc (Bachelor of Procuration)', 'Law', 'degree', 7, 22, '3 years', 'Original law degree still offered at some universities. Qualifies students to serve articles and become attorneys.', ARRAY['Attorney', 'Legal Advisor', 'Conveyancer', 'Notary', 'Corporate Lawyer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 65);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of South Africa (UNISA)', 22, '30 November 2026'),
+      (cid, 'University of Fort Hare (UFH)', 22, '30 September 2026'),
+      (cid, 'University of Zululand (UNIZULU)', 22, '30 September 2026'),
+      (cid, 'University of the Western Cape (UWC)', 24, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BProc (Bachelor of Procuration)';
+  END IF;
+
+  -- BA Law
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA Law') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BA Law', 'Law', 'degree', 7, 24, '3 years', 'Preliminary law degree combining humanities with legal foundations. Must be followed by LLB to practise law.', ARRAY['Legal Researcher', 'Paralegal', 'Government Official', 'Compliance Officer', 'Law LLB candidate'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 65),
+      (cid, 'Mathematics', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Pretoria (UP)', 28, '30 June 2026'),
+      (cid, 'Stellenbosch University', 26, '31 July 2026'),
+      (cid, 'University of KwaZulu-Natal (UKZN)', 24, '30 September 2026'),
+      (cid, 'North-West University (NWU)', 24, '30 September 2026'),
+      (cid, 'University of the Free State (UFS)', 24, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BA Law';
+  END IF;
+
+  -- BA Human Services
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA Human Services') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BA Human Services', 'Humanities', 'degree', 7, 20, '3 years', 'Work with vulnerable communities in social welfare, health promotion and community development contexts.', ARRAY['Human Services Coordinator', 'Social Development Officer', 'NGO Programme Manager', 'Community Health Worker'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Johannesburg (UJ)', 22, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 20, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 20, '30 September 2026'),
+      (cid, 'University of the Western Cape (UWC)', 20, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 20, '30 November 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BA Human Services';
+  END IF;
+
+  -- Diploma in Community Development
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Community Development') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Community Development', 'Humanities', 'diploma', 6, 18, '3 years', 'Plan and implement development programmes in communities. Work with NGOs, government departments and municipalities.', ARRAY['Community Development Officer', 'Ward Councillor Support', 'NPO Programme Coordinator', 'Local Economic Development Officer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Tshwane University of Technology (TUT)', 18, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 18, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 18, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 18, '30 November 2026'),
+      (cid, 'Sol Plaatje University (SPU)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Community Development';
+  END IF;
+
+  -- BCom Hospitality Management
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BCom Hospitality Management') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BCom Hospitality Management', 'Commerce', 'degree', 7, 22, '3 years', 'Manage hotels, lodges, restaurants and resorts. SA tourism employs over 1.5 million people.', ARRAY['Hotel Manager', 'Lodge Manager', 'Restaurant Manager', 'F&B Director', 'Hospitality Consultant'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 55),
+      (cid, 'Mathematics', 45);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 22, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 22, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 20, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 20, '30 September 2026'),
+      (cid, 'North-West University (NWU)', 22, '30 September 2026'),
+      (cid, 'University of Johannesburg (UJ)', 24, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BCom Hospitality Management';
+  END IF;
+
+  -- Diploma in Travel & Tourism Management
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Travel & Tourism Management') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Travel & Tourism Management', 'Commerce', 'diploma', 6, 18, '3 years', 'Manage travel agencies, tour operations and airline ticketing. SA is Africa''s top tourist destination.', ARRAY['Tour Operator', 'Travel Consultant', 'Airline Sales Agent', 'Tour Guide', 'Safari Manager'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 18, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 18, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Mangosuthu University of Technology (MUT)', 18, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Travel & Tourism Management';
+  END IF;
+
+  -- Diploma in Civil Engineering Technology
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Civil Engineering Technology') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Civil Engineering Technology', 'Engineering', 'diploma', 6, 22, '3 years', 'Practical civil engineering — roads, stormwater, structures and site management. Leads to civil engineering technician.', ARRAY['Civil Engineering Technician', 'Road Inspector', 'Construction Supervisor', 'Stormwater Technician'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 55),
+      (cid, 'Physical Sciences', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 22, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 22, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 22, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 20, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 20, '30 September 2026'),
+      (cid, 'Mangosuthu University of Technology (MUT)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Civil Engineering Technology';
+  END IF;
+
+  -- Diploma in Architecture Technology
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Architecture Technology') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Architecture Technology', 'Built Environment', 'diploma', 6, 22, '3 years', 'Assist architects in designing and documenting buildings using CAD and BIM software.', ARRAY['Architectural Technician', 'Draughtsperson', 'BIM Coordinator', 'Building Inspector'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'Mathematics', 55),
+      (cid, 'English', 50);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 22, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 22, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 22, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Architecture Technology';
+  END IF;
+
+  -- BCom Security Management
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BCom Security Management') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BCom Security Management', 'Commerce', 'degree', 7, 22, '3 years', 'Manage physical and corporate security operations, risk and intelligence. SA has a large private security industry.', ARRAY['Security Manager', 'Corporate Risk Manager', 'Intelligence Analyst', 'Security Consultant', 'Loss Prevention Manager'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 55),
+      (cid, 'Mathematics', 45);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of South Africa (UNISA)', 22, '30 November 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 22, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 22, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BCom Security Management';
+  END IF;
+
+  -- Diploma in Fire Technology
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Fire Technology') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Fire Technology', 'Engineering', 'diploma', 6, 18, '3 years', 'Train as a firefighter and fire protection specialist. All SA municipalities require qualified fire service personnel.', ARRAY['Firefighter', 'Fire Safety Officer', 'Fire Protection Technician', 'Emergency Services Manager'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 50),
+      (cid, 'Mathematics', 40);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 18, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Fire Technology';
+  END IF;
+
+  -- Higher Certificate in Hospitality Operations
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Higher Certificate in Hospitality Operations') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Higher Certificate in Hospitality Operations', 'Commerce', 'certificate', 5, 15, '1 year', 'Entry-level qualification for hospitality sector. Leads into Diploma in Hospitality Management.', ARRAY['Hotel Receptionist', 'Food & Beverage Attendant', 'Housekeeping Supervisor Trainee'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 40);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 15, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 15, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 15, '30 September 2026'),
+      (cid, 'Mangosuthu University of Technology (MUT)', 15, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 15, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Higher Certificate in Hospitality Operations';
+  END IF;
+
+  -- Higher Certificate in Marketing
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Higher Certificate in Marketing') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Higher Certificate in Marketing', 'Commerce', 'certificate', 5, 15, '1 year', 'Foundation marketing qualification. Leads into Diploma in Marketing or BCom Marketing Management.', ARRAY['Marketing Assistant', 'Sales Trainee', 'Social Media Assistant', 'Brand Ambassador'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 45);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 15, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 15, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 15, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 15, '30 September 2026'),
+      (cid, 'Central University of Technology (CUT)', 15, '30 September 2026'),
+      (cid, 'Mangosuthu University of Technology (MUT)', 15, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Higher Certificate in Marketing';
+  END IF;
+
+  -- Higher Certificate in Human Resources Management
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Higher Certificate in Human Resources Management') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Higher Certificate in Human Resources Management', 'Commerce', 'certificate', 5, 15, '1 year', 'Foundation in HR practices. Leads into Diploma in Human Resource Management or BCom HRM.', ARRAY['HR Administrator', 'Payroll Clerk', 'Recruitment Assistant', 'Training Coordinator Trainee'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 45);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Tshwane University of Technology (TUT)', 15, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 15, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 15, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 15, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 15, '30 November 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Higher Certificate in Human Resources Management';
+  END IF;
+
+  -- Higher Certificate in Policing
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Higher Certificate in Policing') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Higher Certificate in Policing', 'Commerce', 'certificate', 5, 15, '1 year', 'Foundation qualification for SAPS recruits and aspiring police officers. Covers criminal law, community policing and investigation basics.', ARRAY['Police Officer (SAPS)', 'Traffic Officer', 'Security Officer', 'Community Safety Officer'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 45);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Tshwane University of Technology (TUT)', 15, '30 September 2026'),
+      (cid, 'University of South Africa (UNISA)', 15, '30 November 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 15, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 15, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Higher Certificate in Policing';
+  END IF;
+
+  -- BA Dance
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BA Dance') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BA Dance', 'Arts & Design', 'degree', 7, 20, '3 years', 'Train as a professional dancer and choreographer. Study ballet, contemporary, African and ballroom dance forms.', ARRAY['Dancer', 'Choreographer', 'Dance Teacher', 'Movement Coach', 'Arts Administrator'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Cape Town (UCT)', 24, '31 July 2026'),
+      (cid, 'Stellenbosch University', 22, '31 July 2026'),
+      (cid, 'University of the Witwatersrand (Wits)', 22, '30 September 2026'),
+      (cid, 'Nelson Mandela University (NMU)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BA Dance';
+  END IF;
+
+  -- Diploma in Theatre Production
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Theatre Production') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Theatre Production', 'Arts & Design', 'diploma', 6, 18, '3 years', 'Work behind the scenes of theatre, television and live events as a director, stage manager or technical specialist.', ARRAY['Stage Manager', 'Theatre Director', 'Lighting Technician', 'Set Designer', 'Props Manager'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Tshwane University of Technology (TUT)', 18, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 18, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Theatre Production';
+  END IF;
+
+  -- BSc Broadcasting & Digital Media
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'BSc Broadcasting & Digital Media') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('BSc Broadcasting & Digital Media', 'Humanities', 'degree', 7, 22, '3 years', 'Produce content for radio, television and digital platforms. SA has a large broadcasting industry led by SABC, eTV and M-Net.', ARRAY['Broadcaster', 'Radio Presenter', 'TV Producer', 'Podcast Creator', 'Digital Content Manager'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 60);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'University of Johannesburg (UJ)', 24, '30 September 2026'),
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 22, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 22, '30 September 2026'),
+      (cid, 'Nelson Mandela University (NMU)', 22, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 20, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): BSc Broadcasting & Digital Media';
+  END IF;
+
+  -- Diploma in Advertising
+  IF NOT EXISTS (SELECT 1 FROM courses WHERE name = 'Diploma in Advertising') THEN
+    INSERT INTO courses (name, faculty, level, nqf_level, min_aps, duration, description, careers, is_active, academic_year)
+    VALUES ('Diploma in Advertising', 'Commerce', 'diploma', 6, 18, '3 years', 'Plan and create advertising campaigns across digital, TV, radio and outdoor media.', ARRAY['Advertising Executive', 'Media Planner', 'Creative Copywriter', 'Social Media Advertiser', 'Campaign Manager'], true, 2025)
+    RETURNING id INTO cid;
+    INSERT INTO course_subject_requirements (course_id, subject, minimum_mark) VALUES
+      (cid, 'English', 55);
+    INSERT INTO course_universities (course_id, university_name, min_aps, application_deadline) VALUES
+      (cid, 'Cape Peninsula University of Technology (CPUT)', 20, '30 September 2026'),
+      (cid, 'Tshwane University of Technology (TUT)', 20, '30 September 2026'),
+      (cid, 'Durban University of Technology (DUT)', 18, '30 September 2026'),
+      (cid, 'Vaal University of Technology (VUT)', 18, '30 September 2026');
+  ELSE
+    RAISE NOTICE 'Skipping (exists): Diploma in Advertising';
+  END IF;
+
+  RAISE NOTICE 'Block complete (19 courses processed)';
 END $$;
 
 -- Verify totals

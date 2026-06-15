@@ -4015,6 +4015,875 @@ const COURSES = [
       { name: 'Durban University of Technology (DUT)', min_aps: 22, deadline: '30 September 2026' },
     ],
   },
+
+  // ════════════════════════════════
+  // EDUCATION — SUBJECT SPECIALISATIONS
+  // ════════════════════════════════
+  {
+    name: 'BEd Mathematics Education',
+    faculty: 'Education', level: 'degree', nqf_level: 7, min_aps: 24, duration: '4 years',
+    description: 'Train to teach Mathematics in secondary schools. Critical shortage subject in SA — bursaries widely available.',
+    careers: ['High School Maths Teacher', 'Curriculum Developer', 'Educational Tutor', 'Assessment Specialist'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 65 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Pretoria (UP)', min_aps: 26, deadline: '30 June 2026' },
+      { name: 'Stellenbosch University', min_aps: 26, deadline: '31 July 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 26, deadline: '30 September 2026' },
+      { name: 'North-West University (NWU)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of the Free State (UFS)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 22, deadline: '30 November 2026' },
+      { name: 'Walter Sisulu University (WSU)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of Fort Hare (UFH)', min_aps: 22, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BEd Physical Sciences Education',
+    faculty: 'Education', level: 'degree', nqf_level: 7, min_aps: 24, duration: '4 years',
+    description: 'Train to teach Physical Sciences (Physics & Chemistry) in secondary schools. Bursaries available from DHET.',
+    careers: ['Physical Sciences Teacher', 'Science Curriculum Developer', 'Laboratory Technician Trainer'],
+    subjects: [{ subject: 'Physical Sciences', minimum_mark: 65 }, { subject: 'Mathematics', minimum_mark: 60 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Pretoria (UP)', min_aps: 26, deadline: '30 June 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 26, deadline: '30 September 2026' },
+      { name: 'North-West University (NWU)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of the Free State (UFS)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 22, deadline: '30 November 2026' },
+      { name: 'University of Limpopo (UL)', min_aps: 22, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BEd Life Sciences Education',
+    faculty: 'Education', level: 'degree', nqf_level: 7, min_aps: 24, duration: '4 years',
+    description: 'Train to teach Life Sciences (Biology) in senior and FET phase. High demand in rural and township schools.',
+    careers: ['Life Sciences Teacher', 'Biology Curriculum Developer', 'Science Education Specialist'],
+    subjects: [{ subject: 'Life Sciences', minimum_mark: 60 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Pretoria (UP)', min_aps: 24, deadline: '30 June 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of the Free State (UFS)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 22, deadline: '30 November 2026' },
+      { name: 'University of Zululand (UNIZULU)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of Limpopo (UL)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of Venda (UNIVEN)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BEd English Language Teaching',
+    faculty: 'Education', level: 'degree', nqf_level: 7, min_aps: 22, duration: '4 years',
+    description: 'Specialise in teaching English as first or additional language. One of the most in-demand teaching specialisations in SA.',
+    careers: ['English Teacher', 'Language Specialist', 'ESL Teacher', 'Literacy Coordinator'],
+    subjects: [{ subject: 'English', minimum_mark: 70 }],
+    universities: [
+      { name: 'University of Pretoria (UP)', min_aps: 24, deadline: '30 June 2026' },
+      { name: 'Rhodes University', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of the Western Cape (UWC)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Walter Sisulu University (WSU)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of Fort Hare (UFH)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 20, deadline: '30 November 2026' },
+    ],
+  },
+  {
+    name: 'BEd History & Social Sciences Education',
+    faculty: 'Education', level: 'degree', nqf_level: 7, min_aps: 22, duration: '4 years',
+    description: 'Train to teach History and Social Sciences at secondary level. Strong foundation in Humanities required.',
+    careers: ['History Teacher', 'Social Sciences Teacher', 'Curriculum Advisor', 'Museum Educator'],
+    subjects: [{ subject: 'History', minimum_mark: 60 }, { subject: 'English', minimum_mark: 60 }],
+    universities: [
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of the Free State (UFS)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 20, deadline: '30 November 2026' },
+      { name: 'University of Fort Hare (UFH)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of Zululand (UNIZULU)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BEd Technology Education',
+    faculty: 'Education', level: 'degree', nqf_level: 7, min_aps: 22, duration: '4 years',
+    description: 'Train to teach Technology, Design and Engineering Graphics in schools. Supports STEM education in SA.',
+    careers: ['Technology Teacher', 'Technical Drawing Teacher', 'CAD Trainer', 'STEM Education Specialist'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 55 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 20, deadline: '30 November 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // LANGUAGE & AFRICAN STUDIES DEGREES
+  // ════════════════════════════════
+  {
+    name: 'BA Afrikaans & Nederlands',
+    faculty: 'Humanities', level: 'degree', nqf_level: 7, min_aps: 20, duration: '3 years',
+    description: 'Study Afrikaans language and literature, with links to Dutch. Opens doors in media, education and publishing.',
+    careers: ['Afrikaans Teacher', 'Translator', 'Editor', 'Journalist', 'Publisher', 'Lexicographer'],
+    subjects: [{ subject: 'Afrikaans', minimum_mark: 65 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'Stellenbosch University', min_aps: 24, deadline: '31 July 2026' },
+      { name: 'North-West University (NWU)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of Pretoria (UP)', min_aps: 22, deadline: '30 June 2026' },
+      { name: 'University of the Free State (UFS)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of the Western Cape (UWC)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 20, deadline: '30 November 2026' },
+    ],
+  },
+  {
+    name: 'BA isiZulu Studies',
+    faculty: 'Humanities', level: 'degree', nqf_level: 7, min_aps: 20, duration: '3 years',
+    description: 'Study isiZulu language, literature and culture. SA has 12 million isiZulu speakers — careers in media, government and education.',
+    careers: ['isiZulu Teacher', 'Translator', 'Broadcaster', 'Community Liaison Officer', 'Cultural Officer'],
+    subjects: [{ subject: 'isiZulu', minimum_mark: 60 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of Zululand (UNIZULU)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 20, deadline: '30 November 2026' },
+      { name: 'Walter Sisulu University (WSU)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BA isiXhosa Studies',
+    faculty: 'Humanities', level: 'degree', nqf_level: 7, min_aps: 20, duration: '3 years',
+    description: 'Study isiXhosa language and literature. Valuable for government, NGOs and media in the Eastern Cape and Western Cape.',
+    careers: ['isiXhosa Teacher', 'Interpreter', 'Broadcaster', 'Government Language Practitioner', 'Community Liaison'],
+    subjects: [{ subject: 'isiXhosa', minimum_mark: 60 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Fort Hare (UFH)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Walter Sisulu University (WSU)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of the Western Cape (UWC)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Rhodes University', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 20, deadline: '30 November 2026' },
+    ],
+  },
+  {
+    name: 'BA Sesotho Studies',
+    faculty: 'Humanities', level: 'degree', nqf_level: 7, min_aps: 20, duration: '3 years',
+    description: 'Study Sesotho (Southern Sotho) language and literature. Official language of Lesotho and widely spoken in the Free State.',
+    careers: ['Sesotho Teacher', 'Interpreter', 'Community Development Officer', 'Government Language Practitioner'],
+    subjects: [{ subject: 'Sesotho', minimum_mark: 60 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of the Free State (UFS)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 20, deadline: '30 November 2026' },
+      { name: 'North-West University (NWU)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BA Setswana Studies',
+    faculty: 'Humanities', level: 'degree', nqf_level: 7, min_aps: 20, duration: '3 years',
+    description: 'Study Setswana language and literature. Widely spoken in North West Province and Botswana.',
+    careers: ['Setswana Teacher', 'Translator', 'Broadcaster', 'Language Practitioner', 'Cultural Heritage Officer'],
+    subjects: [{ subject: 'Setswana', minimum_mark: 60 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'North-West University (NWU)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 20, deadline: '30 November 2026' },
+      { name: 'Sol Plaatje University (SPU)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // COMMERCE — MORE DEGREES & DIPLOMAS
+  // ════════════════════════════════
+  {
+    name: 'BCom Actuarial Science',
+    faculty: 'Commerce', level: 'degree', nqf_level: 7, min_aps: 32, duration: '3 years',
+    description: 'Apply statistics and financial mathematics to insurance and risk. One of the highest-earning professions in SA.',
+    careers: ['Actuary', 'Risk Analyst', 'Insurance Specialist', 'Pension Fund Manager', 'Financial Modeller'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 80 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Cape Town (UCT)', min_aps: 36, deadline: '31 July 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 34, deadline: '30 September 2026' },
+      { name: 'University of Pretoria (UP)', min_aps: 32, deadline: '30 June 2026' },
+      { name: 'Stellenbosch University', min_aps: 34, deadline: '31 July 2026' },
+    ],
+  },
+  {
+    name: 'BCom Financial Planning',
+    faculty: 'Commerce', level: 'degree', nqf_level: 7, min_aps: 24, duration: '3 years',
+    description: 'Study personal financial planning, investment advice and retirement planning. Leads to CFP certification.',
+    careers: ['Financial Planner', 'Wealth Manager', 'Investment Advisor', 'Retirement Planner', 'Estate Planner'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 55 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of the Free State (UFS)', min_aps: 26, deadline: '30 September 2026' },
+      { name: 'North-West University (NWU)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 24, deadline: '30 November 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 22, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BCom Logistics Management',
+    faculty: 'Commerce', level: 'degree', nqf_level: 7, min_aps: 24, duration: '3 years',
+    description: 'Plan and manage the movement of goods from supplier to customer. Critical role in SA manufacturing and trade.',
+    careers: ['Logistics Manager', 'Supply Chain Analyst', 'Distribution Manager', 'Import/Export Manager', 'Fleet Manager'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 55 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Johannesburg (UJ)', min_aps: 26, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 22, deadline: '30 November 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Graphic Design',
+    faculty: 'Arts & Design', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Create visual content for brands, advertising and digital media. SA design industry is growing rapidly.',
+    careers: ['Graphic Designer', 'Brand Designer', 'Advertising Designer', 'Web Designer', 'Social Media Designer'],
+    subjects: [{ subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Interior Design',
+    faculty: 'Arts & Design', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Design functional and beautiful interior spaces for homes, offices and commercial properties.',
+    careers: ['Interior Designer', 'Décor Consultant', 'Space Planner', 'Furniture Buyer', 'Exhibition Designer'],
+    subjects: [{ subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Sound Engineering',
+    faculty: 'Arts & Design', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Record, mix and master audio for music, film, radio and television. SA has a thriving music and broadcast industry.',
+    careers: ['Sound Engineer', 'Audio Engineer', 'Music Producer', 'Broadcast Technician', 'Post-Production Sound Editor'],
+    subjects: [{ subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Journalism',
+    faculty: 'Humanities', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Train in print, broadcast and digital journalism. SA media sector offers good employment opportunities.',
+    careers: ['Journalist', 'News Reporter', 'Copy Editor', 'Online Content Producer', 'Radio Presenter'],
+    subjects: [{ subject: 'English', minimum_mark: 60 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // HEALTH — EXTENDED & SPECIALIST
+  // ════════════════════════════════
+  {
+    name: 'BSc Medical Laboratory Science',
+    faculty: 'Health Sciences', level: 'degree', nqf_level: 7, min_aps: 26, duration: '4 years',
+    description: 'Perform diagnostic tests that help doctors detect and diagnose diseases. Works in hospitals and private labs.',
+    careers: ['Medical Laboratory Scientist', 'Clinical Pathologist Assistant', 'Blood Bank Technologist', 'Lab Manager'],
+    subjects: [{ subject: 'Life Sciences', minimum_mark: 60 }, { subject: 'Physical Sciences', minimum_mark: 55 }, { subject: 'Mathematics', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of the Free State (UFS)', min_aps: 28, deadline: '30 September 2026' },
+      { name: 'University of the Western Cape (UWC)', min_aps: 26, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Mangosuthu University of Technology (MUT)', min_aps: 22, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BSc Human Movement Science',
+    faculty: 'Health Sciences', level: 'degree', nqf_level: 7, min_aps: 24, duration: '3 years',
+    description: 'Study the science of physical movement, exercise physiology and motor control. Gateway to teaching, coaching and health professions.',
+    careers: ['Biokineticist', 'Sports Coach', 'Exercise Physiologist', 'PE Teacher', 'Ergonomist'],
+    subjects: [{ subject: 'Life Sciences', minimum_mark: 55 }, { subject: 'Mathematics', minimum_mark: 50 }, { subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'Stellenbosch University', min_aps: 26, deadline: '31 July 2026' },
+      { name: 'University of Pretoria (UP)', min_aps: 26, deadline: '30 June 2026' },
+      { name: 'North-West University (NWU)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of the Free State (UFS)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 24, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BSc Audiology',
+    faculty: 'Health Sciences', level: 'degree', nqf_level: 7, min_aps: 26, duration: '4 years',
+    description: 'Diagnose and treat hearing loss and balance disorders. Growing field as SA population ages.',
+    careers: ['Audiologist', 'Hearing Aid Specialist', 'Balance Disorder Clinician', 'School Audiologist'],
+    subjects: [{ subject: 'Life Sciences', minimum_mark: 60 }, { subject: 'Mathematics', minimum_mark: 55 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Pretoria (UP)', min_aps: 28, deadline: '30 June 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 28, deadline: '30 September 2026' },
+      { name: 'Stellenbosch University', min_aps: 26, deadline: '31 July 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 26, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BSc Consumer Science',
+    faculty: 'Science', level: 'degree', nqf_level: 7, min_aps: 24, duration: '3 years',
+    description: 'Study food, nutrition, textiles and household management from a consumer perspective. Broad career applications.',
+    careers: ['Consumer Scientist', 'Food Product Developer', 'Textile Quality Inspector', 'Home Economics Specialist'],
+    subjects: [{ subject: 'Life Sciences', minimum_mark: 55 }, { subject: 'Mathematics', minimum_mark: 50 }],
+    universities: [
+      { name: 'University of Pretoria (UP)', min_aps: 26, deadline: '30 June 2026' },
+      { name: 'North-West University (NWU)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of the Free State (UFS)', min_aps: 24, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Bachelor of Nursing (Extended)',
+    faculty: 'Health Sciences', level: 'degree', nqf_level: 7, min_aps: 18, duration: '5 years',
+    description: 'Extended nursing programme for students who need additional academic support. Same outcome as standard BNSc.',
+    careers: ['Registered Nurse', 'Midwife', 'Community Health Nurse', 'ICU Nurse'],
+    subjects: [{ subject: 'English', minimum_mark: 50 }, { subject: 'Life Sciences', minimum_mark: 50 }],
+    universities: [
+      { name: 'University of Fort Hare (UFH)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Walter Sisulu University (WSU)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Zululand (UNIZULU)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Venda (UNIVEN)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Mpumalanga (UMP)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // SCIENCE — EXTENDED & SPECIALIST
+  // ════════════════════════════════
+  {
+    name: 'BSc Earth Sciences',
+    faculty: 'Science', level: 'degree', nqf_level: 7, min_aps: 26, duration: '3 years',
+    description: 'Study rocks, minerals, earthquakes and the structure of the Earth. Essential for mining, oil exploration and environmental work.',
+    careers: ['Geoscientist', 'Petroleum Geologist', 'Seismologist', 'Mining Geologist', 'Environmental Geologist'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 60 }, { subject: 'Physical Sciences', minimum_mark: 65 }],
+    universities: [
+      { name: 'University of Cape Town (UCT)', min_aps: 30, deadline: '31 July 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 28, deadline: '30 September 2026' },
+      { name: 'Stellenbosch University', min_aps: 28, deadline: '31 July 2026' },
+      { name: 'University of Pretoria (UP)', min_aps: 26, deadline: '30 June 2026' },
+      { name: 'Rhodes University', min_aps: 26, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BSc Geophysics',
+    faculty: 'Science', level: 'degree', nqf_level: 7, min_aps: 28, duration: '3 years',
+    description: 'Study the physical properties of the Earth using physics. Key role in oil and gas exploration and seismic hazard assessment.',
+    careers: ['Geophysicist', 'Seismic Data Interpreter', 'Exploration Geophysicist', 'Mining Geophysicist'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 70 }, { subject: 'Physical Sciences', minimum_mark: 70 }],
+    universities: [
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 30, deadline: '30 September 2026' },
+      { name: 'University of Pretoria (UP)', min_aps: 28, deadline: '30 June 2026' },
+    ],
+  },
+  {
+    name: 'BSc Neuroscience',
+    faculty: 'Science', level: 'degree', nqf_level: 7, min_aps: 28, duration: '3 years',
+    description: 'Study the brain, nervous system and behaviour. Interdisciplinary field at the forefront of medical research.',
+    careers: ['Neuroscientist', 'Neurologist', 'Neuropsychologist', 'Brain Research Scientist', 'Clinical Neurophysiologist'],
+    subjects: [{ subject: 'Life Sciences', minimum_mark: 65 }, { subject: 'Mathematics', minimum_mark: 60 }, { subject: 'Physical Sciences', minimum_mark: 60 }],
+    universities: [
+      { name: 'University of Cape Town (UCT)', min_aps: 32, deadline: '31 July 2026' },
+      { name: 'Stellenbosch University', min_aps: 30, deadline: '31 July 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 30, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BSc Medical Physics',
+    faculty: 'Science', level: 'degree', nqf_level: 7, min_aps: 28, duration: '3 years',
+    description: 'Apply physics in medical imaging, radiation therapy and nuclear medicine. Highly specialised and sought-after field.',
+    careers: ['Medical Physicist', 'Radiation Oncology Physicist', 'Nuclear Medicine Physicist', 'MRI Physicist'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 70 }, { subject: 'Physical Sciences', minimum_mark: 70 }],
+    universities: [
+      { name: 'University of Cape Town (UCT)', min_aps: 32, deadline: '31 July 2026' },
+      { name: 'Stellenbosch University', min_aps: 30, deadline: '31 July 2026' },
+      { name: 'University of the Free State (UFS)', min_aps: 28, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // ENGINEERING — MORE PROGRAMMES
+  // ════════════════════════════════
+  {
+    name: 'BEng Structural Engineering',
+    faculty: 'Engineering', level: 'degree', nqf_level: 8, min_aps: 30, duration: '4 years',
+    description: 'Design buildings, bridges and infrastructure that are safe and efficient. High demand in SA infrastructure development.',
+    careers: ['Structural Engineer', 'Bridge Engineer', 'Construction Engineer', 'Infrastructure Consultant'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 70 }, { subject: 'Physical Sciences', minimum_mark: 70 }],
+    universities: [
+      { name: 'University of Cape Town (UCT)', min_aps: 34, deadline: '31 July 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 32, deadline: '30 September 2026' },
+      { name: 'Stellenbosch University', min_aps: 32, deadline: '31 July 2026' },
+      { name: 'University of Pretoria (UP)', min_aps: 30, deadline: '30 June 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 30, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BEng Electronic Engineering',
+    faculty: 'Engineering', level: 'degree', nqf_level: 8, min_aps: 30, duration: '4 years',
+    description: 'Design and develop electronic systems, circuits and devices for telecom, defence and consumer electronics.',
+    careers: ['Electronic Engineer', 'Circuit Design Engineer', 'Telecom Engineer', 'Systems Engineer', 'Embedded Systems Developer'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 70 }, { subject: 'Physical Sciences', minimum_mark: 70 }],
+    universities: [
+      { name: 'University of Cape Town (UCT)', min_aps: 34, deadline: '31 July 2026' },
+      { name: 'Stellenbosch University', min_aps: 32, deadline: '31 July 2026' },
+      { name: 'University of Pretoria (UP)', min_aps: 30, deadline: '30 June 2026' },
+      { name: 'University of Johannesburg (UJ)', min_aps: 28, deadline: '30 September 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 28, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Higher Certificate in Building & Construction',
+    faculty: 'Built Environment', level: 'certificate', nqf_level: 5, min_aps: 15, duration: '1 year',
+    description: 'Entry-level qualification for the construction industry. Leads into Diploma in Construction.',
+    careers: ['Construction Site Assistant', 'Building Materials Sales', 'Construction Learnership Candidate'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 40 }, { subject: 'English', minimum_mark: 40 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 15, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // EXTENDED DEGREES (FOUNDATION)
+  // ════════════════════════════════
+  {
+    name: 'BSc (Extended) Engineering',
+    faculty: 'Engineering', level: 'degree', nqf_level: 8, min_aps: 22, duration: '5 years',
+    description: 'Five-year extended engineering programme with a foundation year for students who narrowly missed standard entry requirements.',
+    careers: ['Civil Engineer', 'Mechanical Engineer', 'Electrical Engineer', 'Chemical Engineer'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 50 }, { subject: 'Physical Sciences', minimum_mark: 50 }],
+    universities: [
+      { name: 'University of Cape Town (UCT)', min_aps: 24, deadline: '31 July 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Stellenbosch University', min_aps: 22, deadline: '31 July 2026' },
+      { name: 'University of Pretoria (UP)', min_aps: 22, deadline: '30 June 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Nelson Mandela University (NMU)', min_aps: 22, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BCom (Extended)',
+    faculty: 'Commerce', level: 'degree', nqf_level: 7, min_aps: 18, duration: '4 years',
+    description: 'Extended four-year BCom with a first-year foundation. For students who need additional maths and English support before mainstream study.',
+    careers: ['Accountant', 'Financial Manager', 'Business Analyst', 'Entrepreneur'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 40 }, { subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'University of the Western Cape (UWC)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Fort Hare (UFH)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Walter Sisulu University (WSU)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Zululand (UNIZULU)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Limpopo (UL)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Sol Plaatje University (SPU)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BA (Extended) Humanities',
+    faculty: 'Humanities', level: 'degree', nqf_level: 7, min_aps: 18, duration: '4 years',
+    description: 'Extended humanities degree with foundation year for students who need extra language and academic literacy support.',
+    careers: ['Social Researcher', 'Community Worker', 'Teacher', 'NGO Officer', 'Government Officer'],
+    subjects: [{ subject: 'English', minimum_mark: 40 }],
+    universities: [
+      { name: 'University of the Western Cape (UWC)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Fort Hare (UFH)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Walter Sisulu University (WSU)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Zululand (UNIZULU)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Limpopo (UL)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Venda (UNIVEN)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of Mpumalanga (UMP)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BSc (Extended) Science',
+    faculty: 'Science', level: 'degree', nqf_level: 7, min_aps: 20, duration: '4 years',
+    description: 'Extended science degree with foundation year covering maths, physics, chemistry and biology before mainstream science study.',
+    careers: ['Scientist', 'Researcher', 'Chemist', 'Biologist', 'Data Analyst'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 40 }, { subject: 'Physical Sciences', minimum_mark: 40 }],
+    universities: [
+      { name: 'University of the Western Cape (UWC)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of Fort Hare (UFH)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of Zululand (UNIZULU)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of Limpopo (UL)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of Venda (UNIVEN)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of Mpumalanga (UMP)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Walter Sisulu University (WSU)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // AGRICULTURE & FOOD — MORE
+  // ════════════════════════════════
+  {
+    name: 'BSc Food Technology',
+    faculty: 'Agriculture', level: 'degree', nqf_level: 7, min_aps: 24, duration: '3 years',
+    description: 'Develop, test and improve food products and preservation methods. SA food industry employs thousands of graduates.',
+    careers: ['Food Technologist', 'Product Developer', 'Quality Control Manager', 'Food Safety Auditor', 'Process Engineer'],
+    subjects: [{ subject: 'Physical Sciences', minimum_mark: 60 }, { subject: 'Life Sciences', minimum_mark: 60 }, { subject: 'Mathematics', minimum_mark: 55 }],
+    universities: [
+      { name: 'Stellenbosch University', min_aps: 28, deadline: '31 July 2026' },
+      { name: 'University of Pretoria (UP)', min_aps: 26, deadline: '30 June 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 22, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Food Preparation & Culinary Arts',
+    faculty: 'Commerce', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Professional culinary training covering cooking techniques, kitchen management and food service. SA tourism and hospitality drives demand.',
+    careers: ['Chef', 'Sous Chef', 'Pastry Chef', 'Restaurant Manager', 'Catering Manager', 'Food Stylist'],
+    subjects: [{ subject: 'English', minimum_mark: 45 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Mangosuthu University of Technology (MUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // INFORMATION TECHNOLOGY — MORE
+  // ════════════════════════════════
+  {
+    name: 'BSc Multimedia Computing',
+    faculty: 'Information Technology', level: 'degree', nqf_level: 7, min_aps: 24, duration: '3 years',
+    description: 'Combine computing with audio, video and interactive media. Ideal for digital content creation and interactive design.',
+    careers: ['Multimedia Developer', 'Web Application Developer', 'UX Developer', 'Digital Content Producer', 'App Developer'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 55 }, { subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'University of Johannesburg (UJ)', min_aps: 26, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Nelson Mandela University (NMU)', min_aps: 22, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Web Development',
+    faculty: 'Information Technology', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Build websites and web applications using modern frameworks. One of the most in-demand skills in SA job market.',
+    careers: ['Web Developer', 'Front-End Developer', 'Back-End Developer', 'Full-Stack Developer', 'WordPress Developer'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 45 }, { subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Mobile App Development',
+    faculty: 'Information Technology', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Build Android and iOS mobile applications. Mobile development is the fastest-growing IT specialisation in Africa.',
+    careers: ['Mobile App Developer', 'Android Developer', 'iOS Developer', 'React Native Developer', 'Flutter Developer'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 50 }, { subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BSc Information Systems',
+    faculty: 'Information Technology', level: 'degree', nqf_level: 7, min_aps: 24, duration: '3 years',
+    description: 'Bridge business needs with IT solutions. Study systems analysis, database management and enterprise software.',
+    careers: ['Systems Analyst', 'Business Analyst', 'Database Administrator', 'IT Manager', 'ERP Specialist'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 55 }, { subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Cape Town (UCT)', min_aps: 30, deadline: '31 July 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 28, deadline: '30 September 2026' },
+      { name: 'Rhodes University', min_aps: 26, deadline: '30 September 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Nelson Mandela University (NMU)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of the Western Cape (UWC)', min_aps: 24, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // LAW — MORE PROGRAMMES
+  // ════════════════════════════════
+  {
+    name: 'BProc (Bachelor of Procuration)',
+    faculty: 'Law', level: 'degree', nqf_level: 7, min_aps: 22, duration: '3 years',
+    description: 'Original law degree still offered at some universities. Qualifies students to serve articles and become attorneys.',
+    careers: ['Attorney', 'Legal Advisor', 'Conveyancer', 'Notary', 'Corporate Lawyer'],
+    subjects: [{ subject: 'English', minimum_mark: 65 }],
+    universities: [
+      { name: 'University of South Africa (UNISA)', min_aps: 22, deadline: '30 November 2026' },
+      { name: 'University of Fort Hare (UFH)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of Zululand (UNIZULU)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of the Western Cape (UWC)', min_aps: 24, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'BA Law',
+    faculty: 'Law', level: 'degree', nqf_level: 7, min_aps: 24, duration: '3 years',
+    description: 'Preliminary law degree combining humanities with legal foundations. Must be followed by LLB to practise law.',
+    careers: ['Legal Researcher', 'Paralegal', 'Government Official', 'Compliance Officer', 'Law LLB candidate'],
+    subjects: [{ subject: 'English', minimum_mark: 65 }, { subject: 'Mathematics', minimum_mark: 50 }],
+    universities: [
+      { name: 'University of Pretoria (UP)', min_aps: 28, deadline: '30 June 2026' },
+      { name: 'Stellenbosch University', min_aps: 26, deadline: '31 July 2026' },
+      { name: 'University of KwaZulu-Natal (UKZN)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'North-West University (NWU)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'University of the Free State (UFS)', min_aps: 24, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // SOCIAL WORK & DEVELOPMENT
+  // ════════════════════════════════
+  {
+    name: 'BA Human Services',
+    faculty: 'Humanities', level: 'degree', nqf_level: 7, min_aps: 20, duration: '3 years',
+    description: 'Work with vulnerable communities in social welfare, health promotion and community development contexts.',
+    careers: ['Human Services Coordinator', 'Social Development Officer', 'NGO Programme Manager', 'Community Health Worker'],
+    subjects: [{ subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Johannesburg (UJ)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of the Western Cape (UWC)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 20, deadline: '30 November 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Community Development',
+    faculty: 'Humanities', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Plan and implement development programmes in communities. Work with NGOs, government departments and municipalities.',
+    careers: ['Community Development Officer', 'Ward Councillor Support', 'NPO Programme Coordinator', 'Local Economic Development Officer'],
+    subjects: [{ subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 18, deadline: '30 November 2026' },
+      { name: 'Sol Plaatje University (SPU)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // TOURISM & HOSPITALITY — MORE
+  // ════════════════════════════════
+  {
+    name: 'BCom Hospitality Management',
+    faculty: 'Commerce', level: 'degree', nqf_level: 7, min_aps: 22, duration: '3 years',
+    description: 'Manage hotels, lodges, restaurants and resorts. SA tourism employs over 1.5 million people.',
+    careers: ['Hotel Manager', 'Lodge Manager', 'Restaurant Manager', 'F&B Director', 'Hospitality Consultant'],
+    subjects: [{ subject: 'English', minimum_mark: 55 }, { subject: 'Mathematics', minimum_mark: 45 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'North-West University (NWU)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'University of Johannesburg (UJ)', min_aps: 24, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Travel & Tourism Management',
+    faculty: 'Commerce', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Manage travel agencies, tour operations and airline ticketing. SA is Africa\'s top tourist destination.',
+    careers: ['Tour Operator', 'Travel Consultant', 'Airline Sales Agent', 'Tour Guide', 'Safari Manager'],
+    subjects: [{ subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Mangosuthu University of Technology (MUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // BUILT ENVIRONMENT — MORE
+  // ════════════════════════════════
+  {
+    name: 'Diploma in Civil Engineering Technology',
+    faculty: 'Engineering', level: 'diploma', nqf_level: 6, min_aps: 22, duration: '3 years',
+    description: 'Practical civil engineering — roads, stormwater, structures and site management. Leads to civil engineering technician.',
+    careers: ['Civil Engineering Technician', 'Road Inspector', 'Construction Supervisor', 'Stormwater Technician'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 55 }, { subject: 'Physical Sciences', minimum_mark: 50 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Mangosuthu University of Technology (MUT)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Architecture Technology',
+    faculty: 'Built Environment', level: 'diploma', nqf_level: 6, min_aps: 22, duration: '3 years',
+    description: 'Assist architects in designing and documenting buildings using CAD and BIM software.',
+    careers: ['Architectural Technician', 'Draughtsperson', 'BIM Coordinator', 'Building Inspector'],
+    subjects: [{ subject: 'Mathematics', minimum_mark: 55 }, { subject: 'English', minimum_mark: 50 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // SECURITY & EMERGENCY — MORE
+  // ════════════════════════════════
+  {
+    name: 'BCom Security Management',
+    faculty: 'Commerce', level: 'degree', nqf_level: 7, min_aps: 22, duration: '3 years',
+    description: 'Manage physical and corporate security operations, risk and intelligence. SA has a large private security industry.',
+    careers: ['Security Manager', 'Corporate Risk Manager', 'Intelligence Analyst', 'Security Consultant', 'Loss Prevention Manager'],
+    subjects: [{ subject: 'English', minimum_mark: 55 }, { subject: 'Mathematics', minimum_mark: 45 }],
+    universities: [
+      { name: 'University of South Africa (UNISA)', min_aps: 22, deadline: '30 November 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 22, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Fire Technology',
+    faculty: 'Engineering', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Train as a firefighter and fire protection specialist. All SA municipalities require qualified fire service personnel.',
+    careers: ['Firefighter', 'Fire Safety Officer', 'Fire Protection Technician', 'Emergency Services Manager'],
+    subjects: [{ subject: 'English', minimum_mark: 50 }, { subject: 'Mathematics', minimum_mark: 40 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // HIGHER CERTIFICATES — ADDITIONAL
+  // ════════════════════════════════
+  {
+    name: 'Higher Certificate in Hospitality Operations',
+    faculty: 'Commerce', level: 'certificate', nqf_level: 5, min_aps: 15, duration: '1 year',
+    description: 'Entry-level qualification for hospitality sector. Leads into Diploma in Hospitality Management.',
+    careers: ['Hotel Receptionist', 'Food & Beverage Attendant', 'Housekeeping Supervisor Trainee'],
+    subjects: [{ subject: 'English', minimum_mark: 40 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Mangosuthu University of Technology (MUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 15, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Higher Certificate in Marketing',
+    faculty: 'Commerce', level: 'certificate', nqf_level: 5, min_aps: 15, duration: '1 year',
+    description: 'Foundation marketing qualification. Leads into Diploma in Marketing or BCom Marketing Management.',
+    careers: ['Marketing Assistant', 'Sales Trainee', 'Social Media Assistant', 'Brand Ambassador'],
+    subjects: [{ subject: 'English', minimum_mark: 45 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Central University of Technology (CUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Mangosuthu University of Technology (MUT)', min_aps: 15, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Higher Certificate in Human Resources Management',
+    faculty: 'Commerce', level: 'certificate', nqf_level: 5, min_aps: 15, duration: '1 year',
+    description: 'Foundation in HR practices. Leads into Diploma in Human Resource Management or BCom HRM.',
+    careers: ['HR Administrator', 'Payroll Clerk', 'Recruitment Assistant', 'Training Coordinator Trainee'],
+    subjects: [{ subject: 'English', minimum_mark: 45 }],
+    universities: [
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 15, deadline: '30 November 2026' },
+    ],
+  },
+  {
+    name: 'Higher Certificate in Policing',
+    faculty: 'Commerce', level: 'certificate', nqf_level: 5, min_aps: 15, duration: '1 year',
+    description: 'Foundation qualification for SAPS recruits and aspiring police officers. Covers criminal law, community policing and investigation basics.',
+    careers: ['Police Officer (SAPS)', 'Traffic Officer', 'Security Officer', 'Community Safety Officer'],
+    subjects: [{ subject: 'English', minimum_mark: 45 }],
+    universities: [
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'University of South Africa (UNISA)', min_aps: 15, deadline: '30 November 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 15, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 15, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // PERFORMING ARTS — MORE
+  // ════════════════════════════════
+  {
+    name: 'BA Dance',
+    faculty: 'Arts & Design', level: 'degree', nqf_level: 7, min_aps: 20, duration: '3 years',
+    description: 'Train as a professional dancer and choreographer. Study ballet, contemporary, African and ballroom dance forms.',
+    careers: ['Dancer', 'Choreographer', 'Dance Teacher', 'Movement Coach', 'Arts Administrator'],
+    subjects: [{ subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'University of Cape Town (UCT)', min_aps: 24, deadline: '31 July 2026' },
+      { name: 'Stellenbosch University', min_aps: 22, deadline: '31 July 2026' },
+      { name: 'University of the Witwatersrand (Wits)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Nelson Mandela University (NMU)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Theatre Production',
+    faculty: 'Arts & Design', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Work behind the scenes of theatre, television and live events as a director, stage manager or technical specialist.',
+    careers: ['Stage Manager', 'Theatre Director', 'Lighting Technician', 'Set Designer', 'Props Manager'],
+    subjects: [{ subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
+
+  // ════════════════════════════════
+  // MEDIA & COMMUNICATIONS
+  // ════════════════════════════════
+  {
+    name: 'BSc Broadcasting & Digital Media',
+    faculty: 'Humanities', level: 'degree', nqf_level: 7, min_aps: 22, duration: '3 years',
+    description: 'Produce content for radio, television and digital platforms. SA has a large broadcasting industry led by SABC, eTV and M-Net.',
+    careers: ['Broadcaster', 'Radio Presenter', 'TV Producer', 'Podcast Creator', 'Digital Content Manager'],
+    subjects: [{ subject: 'English', minimum_mark: 60 }],
+    universities: [
+      { name: 'University of Johannesburg (UJ)', min_aps: 24, deadline: '30 September 2026' },
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Nelson Mandela University (NMU)', min_aps: 22, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 20, deadline: '30 September 2026' },
+    ],
+  },
+  {
+    name: 'Diploma in Advertising',
+    faculty: 'Commerce', level: 'diploma', nqf_level: 6, min_aps: 18, duration: '3 years',
+    description: 'Plan and create advertising campaigns across digital, TV, radio and outdoor media.',
+    careers: ['Advertising Executive', 'Media Planner', 'Creative Copywriter', 'Social Media Advertiser', 'Campaign Manager'],
+    subjects: [{ subject: 'English', minimum_mark: 55 }],
+    universities: [
+      { name: 'Cape Peninsula University of Technology (CPUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Tshwane University of Technology (TUT)', min_aps: 20, deadline: '30 September 2026' },
+      { name: 'Durban University of Technology (DUT)', min_aps: 18, deadline: '30 September 2026' },
+      { name: 'Vaal University of Technology (VUT)', min_aps: 18, deadline: '30 September 2026' },
+    ],
+  },
 ]
 
 async function seedCourses() {

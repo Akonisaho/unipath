@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 
 const UNIVERSITIES = [
   'University of Cape Town (UCT)', 'University of the Witwatersrand (Wits)',
-  'University of Pretoria (UP)', 'Stellenbosch University (SU)',
+  'University of Pretoria (UP)', 'Stellenbosch University',
   'University of Johannesburg (UJ)', 'University of KwaZulu-Natal (UKZN)',
   'North-West University (NWU)', 'University of the Free State (UFS)',
   'Rhodes University', 'Walter Sisulu University (WSU)',
@@ -129,12 +129,15 @@ export default function ProspectusPage() {
 
   const handleSaveCourses = async (courses: any[]) => {
     setLoading(true)
+    let saved = 0
+    let skipped = 0
     try {
-      for (const course of courses) {
-        if (!course.selected) continue
-        const { data: courseData } = await supabase
+      const selected = courses.filter(c => c.selected !== false)
+      for (const course of selected) {
+        // Upsert course — update if name already exists
+        const { data: courseData, error: upsertErr } = await supabase
           .from('courses')
-          .insert({
+          .upsert({
             name: course.name,
             faculty: course.faculty,
             level: course.level,
@@ -143,36 +146,46 @@ export default function ProspectusPage() {
             duration: course.duration,
             description: course.description,
             careers: course.careers,
-            academic_year: course.academic_year,
-          })
-          .select()
+            is_active: true,
+            academic_year: course.academic_year || 2026,
+          }, { onConflict: 'name' })
+          .select('id')
           .single()
 
-        if (courseData) {
-          if (course.subject_requirements?.length > 0) {
-            await supabase.from('course_subject_requirements').insert(
-              course.subject_requirements.map((req: any) => ({
-                course_id: courseData.id,
-                subject: req.subject,
-                minimum_mark: req.minimum_mark,
-              }))
-            )
-          }
-          await supabase.from('course_universities').insert({
-            course_id: courseData.id,
-            university_name: course.university_name,
-            min_aps: course.min_aps,
-            application_deadline: course.application_deadline,
-          })
+        if (upsertErr || !courseData) { skipped++; continue }
+
+        // Subject requirements — delete existing then re-insert
+        await supabase.from('course_subject_requirements').delete().eq('course_id', courseData.id)
+        if (course.subject_requirements?.length > 0) {
+          await supabase.from('course_subject_requirements').insert(
+            course.subject_requirements.map((req: any) => ({
+              course_id: courseData.id,
+              subject: req.subject,
+              minimum_mark: req.minimum_mark,
+            }))
+          )
         }
+
+        // University entry — upsert to avoid duplicates
+        await supabase.from('course_universities').upsert({
+          course_id: courseData.id,
+          university_name: course.university_name,
+          min_aps: course.min_aps,
+          application_deadline: course.application_deadline,
+        }, { onConflict: 'course_id,university_name', ignoreDuplicates: false })
+
+        saved++
       }
 
-      await supabase
-        .from('prospectus_uploads')
-        .update({ processed: true, processed_at: new Date().toISOString() })
-        .eq('id', uploads.find(u => u.institution_name === courses[0]?.university_name)?.id)
+      // Mark upload as processed
+      const uploadId = uploads.find(u => u.institution_name === courses[0]?.university_name)?.id
+      if (uploadId) {
+        await supabase.from('prospectus_uploads')
+          .update({ processed: true, processed_at: new Date().toISOString(), courses_count: saved })
+          .eq('id', uploadId)
+      }
 
-      toast.success('Courses saved to database!')
+      toast.success(`Saved ${saved} courses${skipped ? ` (${skipped} skipped)` : ''}`)
       setShowExtracted(false)
       setExtractedCourses([])
       fetchUploads()
